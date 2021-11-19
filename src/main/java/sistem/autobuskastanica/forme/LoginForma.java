@@ -41,7 +41,7 @@ public class LoginForma extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(44, 47, 51));
         jPanel1.setForeground(new java.awt.Color(44, 47, 51));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistem/autobuskastanica/ikonice/ikonica2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jTextField1.setBackground(new java.awt.Color(114, 137, 218));
