@@ -63,6 +63,11 @@ public class MenadzerForma extends javax.swing.JFrame {
 
         dodaj.setText("+");
         dodaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dodajActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(114, 137, 218));
@@ -153,6 +158,10 @@ public class MenadzerForma extends javax.swing.JFrame {
     private void unaprediActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unaprediActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_unaprediActionPerformed
+
+    private void dodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dodajActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dodajActionPerformed
 
     /**
      * @param args the command line arguments
