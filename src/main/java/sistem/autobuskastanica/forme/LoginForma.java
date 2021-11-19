@@ -4,6 +4,9 @@
  */
 package sistem.autobuskastanica.forme;
 
+import sistem.autobuskastanica.backendklase.FajlMenadzer;
+import sistem.autobuskastanica.backendklase.UcitaniPodaci;
+
 /**
  *
  * @author Darko
@@ -14,6 +17,11 @@ public class LoginForma extends javax.swing.JFrame {
      * Creates new form LoginForma
      */
     public LoginForma() {
+        FajlMenadzer.napraviPocetneFajlove();
+        UcitaniPodaci.ucitajKorisnike();
+        UcitaniPodaci.ucitajStatuse();
+        UcitaniPodaci.ucitajStatuseZaposlenih();
+        UcitaniPodaci.ucitajZaposlene();
         initComponents();
     }
 
