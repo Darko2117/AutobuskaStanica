@@ -19,6 +19,8 @@ public class PrvaForma extends javax.swing.JFrame {
     /**
      * Creates new form PrvaForma
      */
+    private PrvaForma instanca = this;
+
     public PrvaForma() {
 
         FajlMenadzer.napraviPocetneFajlove();
@@ -30,84 +32,115 @@ public class PrvaForma extends javax.swing.JFrame {
 
         initComponents();
 
-        //ANIMACIJE
-        {
+        pocetneAnimacije();
 
-            //PRVA ANIMACIJA
-            //LABELA 1 ANIMACIJA 1
-            labela1.setText("");
-            String labela1Text = "AUTOBUSKA STANICA";
-            int labela1BrzinaAnimacije1 = 50;
-            int labela1ZakasnjenjeAnimacije1 = 1000;
-            int labela1CeloTrajanjeAnimacije1 = labela1BrzinaAnimacije1 * labela1Text.length() + labela1ZakasnjenjeAnimacije1;
-            LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije1, 0, labela1ZakasnjenjeAnimacije1);
+    }
 
-            //LABELA 2 ANIMACIJA 1
-            labela2.setText("");
-            String labela2Text = "DOBRODOŠLI";
-            int labela2BrzinaAnimacije1 = 50;
-            int labela2ZakasnjenjeAnimacije1 = labela1CeloTrajanjeAnimacije1 + 1000;
-            int labela2CeloTrajanjeAnimacije1 = labela2BrzinaAnimacije1 * labela2Text.length() + labela2ZakasnjenjeAnimacije1;
-            LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije1, 0, labela2ZakasnjenjeAnimacije1);
+    private void pocetneAnimacije() {
 
-            //LABELA 2 ANIMACIJA 2
-            int labela2BrzinaAnimacije2 = 30;
-            int labela2ZakasnjenjeAnimacije2 = labela2CeloTrajanjeAnimacije1 + 2500;
-            int labela2CeloTrajanjeAnimacije2 = labela2BrzinaAnimacije2 * labela2Text.length() + labela2ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije2, 1, labela2ZakasnjenjeAnimacije2);
+        //PRVA ANIMACIJA
+        //LABELA 1 ANIMACIJA 1
+        labela1.setText("");
+        String labela1Text = "AUTOBUSKA STANICA";
+        int labela1BrzinaAnimacije1 = 50;
+        int labela1ZakasnjenjeAnimacije1 = 1000;
+        int labela1CeloTrajanjeAnimacije1 = labela1BrzinaAnimacije1 * labela1Text.length() + labela1ZakasnjenjeAnimacije1;
+        LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije1, 0, labela1ZakasnjenjeAnimacije1);
 
-            //LABELA 1 ANIMACIJA 2
-            int labela1BrzinaAnimacije2 = 30;
-            int labela1ZakasnjenjeAnimacije2 = labela2CeloTrajanjeAnimacije2 + 250;
-            int labela1CeloTrajanjeAnimacije2 = labela1BrzinaAnimacije2 * labela1Text.length() + labela1ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije2, 1, labela1ZakasnjenjeAnimacije2);
-            //----------------------------------------------------------------------------------------------------
+        //LABELA 2 ANIMACIJA 1
+        labela2.setText("");
+        String labela2Text = "DOBRODOŠLI";
+        int labela2BrzinaAnimacije1 = 50;
+        int labela2ZakasnjenjeAnimacije1 = labela1CeloTrajanjeAnimacije1 + 1000;
+        int labela2CeloTrajanjeAnimacije1 = labela2BrzinaAnimacije1 * labela2Text.length() + labela2ZakasnjenjeAnimacije1;
+        LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije1, 0, labela2ZakasnjenjeAnimacije1);
 
-            //ANIMACIJA U SLUCAJU DA NEMA KORISNIKA
-            if (UcitaniPodaci.getKorisnici().isEmpty()) {
+        //LABELA 2 ANIMACIJA 2
+        int labela2BrzinaAnimacije2 = 30;
+        int labela2ZakasnjenjeAnimacije2 = labela2CeloTrajanjeAnimacije1 + 2500;
+        int labela2CeloTrajanjeAnimacije2 = labela2BrzinaAnimacije2 * labela2Text.length() + labela2ZakasnjenjeAnimacije2;
+        LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije2, 1, labela2ZakasnjenjeAnimacije2);
 
-                Timer timer = new Timer();
+        //LABELA 1 ANIMACIJA 2
+        int labela1BrzinaAnimacije2 = 30;
+        int labela1ZakasnjenjeAnimacije2 = labela2CeloTrajanjeAnimacije2;
+        int labela1CeloTrajanjeAnimacije2 = labela1BrzinaAnimacije2 * labela1Text.length() + labela1ZakasnjenjeAnimacije2;
+        LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije2, 1, labela1ZakasnjenjeAnimacije2);
 
-                TimerTask task1 = new TimerTask() {
-                    public void run() {
-                        
-                        ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica2.png")));
+        //OTVARANJE LOGIN FORME
+        if (!UcitaniPodaci.getKorisnici().isEmpty()) {
 
-                        labela1.setFont(new java.awt.Font("Tahoma", 0, 50));
-                        labela1.setForeground(new java.awt.Color(255, 51, 51));
-                        labela2.setFont(new java.awt.Font("Tahoma", 0, 50));
-                        labela2.setForeground(new java.awt.Color(255, 51, 51));
+            Timer timer = new Timer();
 
-                        String labela1Text = "NIJE PRONAĐEN NIJEDAN KORISNIK";
-                        String labela2Text = "MOLIMO UNESITE PRVOG";
+            TimerTask timerTask = new TimerTask() {
+                public void run() {
 
-                        //LABELA 1 ANIMACIJA 1
-                        int labela1BrzinaAnimacije1 = 50;
-                        int labela1ZakasnjenjeAnimacije1 = 0;
-                        int labela1CeloTrajanjeAnimacije1 = labela1BrzinaAnimacije1 * labela1Text.length() + labela1ZakasnjenjeAnimacije1;
-                        LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije1, 0, labela1ZakasnjenjeAnimacije1);
+                    LoginForma loginForma = new LoginForma();
+                    loginForma.setLocation(instanca.getLocation());
+                    loginForma.setVisible(true);
+                    instanca.dispose();
 
-                        //LABELA 2 ANIMACIJA 1
-                        int labela2BrzinaAnimacije1 = 50;
-                        int labela2ZakasnjenjeAnimacije1 = labela1CeloTrajanjeAnimacije1 + 1000;
-                        int labela2CeloTrajanjeAnimacije1 = labela2BrzinaAnimacije1 * labela2Text.length() + labela2ZakasnjenjeAnimacije1;
-                        LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije1, 0, labela2ZakasnjenjeAnimacije1);
-
-                    }
-                };
-                timer.schedule(task1, labela1CeloTrajanjeAnimacije2 + 1000);
-
-            }
-            //----------------------------------------------------------------------------------------------------
+                }
+            };
+            timer.schedule(timerTask, labela1CeloTrajanjeAnimacije2 + 250);
 
         }
+        //----------------------------------------------------------------------------------------------------
+
+        //ANIMACIJA U SLUCAJU DA NEMA KORISNIKA
+        if (UcitaniPodaci.getKorisnici().isEmpty()) {
+
+            Timer timer = new Timer();
+
+            TimerTask task1 = new TimerTask() {
+                public void run() {
+
+                    ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica2.png")));
+
+                    labela1.setFont(new java.awt.Font("Tahoma", 0, 50));
+                    labela1.setForeground(new java.awt.Color(255, 51, 51));
+                    labela2.setFont(new java.awt.Font("Tahoma", 0, 50));
+                    labela2.setForeground(new java.awt.Color(255, 51, 51));
+
+                    String labela1Text = "NIJE PRONAĐEN NIJEDAN KORISNIK";
+                    String labela2Text = "MOLIMO UNESITE PRVOG";
+
+                    //LABELA 1 ANIMACIJA 1
+                    int labela1BrzinaAnimacije1 = 50;
+                    int labela1ZakasnjenjeAnimacije1 = 0;
+                    int labela1CeloTrajanjeAnimacije1 = labela1BrzinaAnimacije1 * labela1Text.length() + labela1ZakasnjenjeAnimacije1;
+                    LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije1, 0, labela1ZakasnjenjeAnimacije1);
+
+                    //LABELA 2 ANIMACIJA 1
+                    int labela2BrzinaAnimacije1 = 50;
+                    int labela2ZakasnjenjeAnimacije1 = labela1CeloTrajanjeAnimacije1 + 1000;
+                    int labela2CeloTrajanjeAnimacije1 = labela2BrzinaAnimacije1 * labela2Text.length() + labela2ZakasnjenjeAnimacije1;
+                    LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije1, 0, labela2ZakasnjenjeAnimacije1);
+
+                    //OTVARANJE UNOSENJE FORME
+                    TimerTask task2 = new TimerTask() {
+                        public void run() {
+
+                            UnosenjeForma unosenjeForma = new UnosenjeForma();
+                            unosenjeForma.setVisible(true);
+                            instanca.dispose();
+
+                        }
+                    };
+                    timer.schedule(task2, labela2CeloTrajanjeAnimacije1 + 1500);
+
+                }
+
+            };
+            timer.schedule(task1, labela1CeloTrajanjeAnimacije2 + 1000);
+
+        }
+        //----------------------------------------------------------------------------------------------------
 
     }
 
     /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+     * This method is called from within the constructor to initialize the form. WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -119,7 +152,7 @@ public class PrvaForma extends javax.swing.JFrame {
         labela2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Proba");
+        setTitle("AUTOBUSKA STANICA");
         setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);

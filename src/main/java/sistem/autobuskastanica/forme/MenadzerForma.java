@@ -35,6 +35,7 @@ public class MenadzerForma extends javax.swing.JFrame {
         unapredi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AUTOBUSKA STANICA");
         setBackground(new java.awt.Color(44, 47, 51));
 
         jPanel1.setBackground(new java.awt.Color(44, 47, 51));

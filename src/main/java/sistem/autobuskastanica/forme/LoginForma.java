@@ -48,6 +48,7 @@ public class LoginForma extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AUTOBUSKA STANICA");
         setBackground(new java.awt.Color(44, 47, 51));
         setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
