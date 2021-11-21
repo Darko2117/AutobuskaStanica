@@ -4,7 +4,11 @@
  */
 package sistem.autobuskastanica.forme;
 
+import java.util.ArrayList;
+import java.util.List;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
+import sistem.autobuskastanica.backendklase.Korisnik;
+import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 
 /**
@@ -17,12 +21,11 @@ public class LoginForma extends javax.swing.JFrame {
      * Creates new form LoginForma
      */
     public LoginForma() {
-        FajlMenadzer.napraviPocetneFajlove();
-        UcitaniPodaci.ucitajKorisnike();
-        UcitaniPodaci.ucitajStatuse();
-        UcitaniPodaci.ucitajStatuseZaposlenih();
-        UcitaniPodaci.ucitajZaposlene();
         initComponents();
+        
+        LabelAnimacija.pokreni(jLabel1, jLabel1.getText(), 100, 0, 200);
+        LabelAnimacija.pokreni(jLabel2, jLabel2.getText(), 100, 0, 200);
+        
     }
 
     /**
@@ -35,24 +38,33 @@ public class LoginForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        ikonica = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(44, 47, 51));
+        setMaximumSize(new java.awt.Dimension(1000, 650));
+        setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);
+        setSize(new java.awt.Dimension(1000, 650));
 
         jPanel1.setBackground(new java.awt.Color(44, 47, 51));
         jPanel1.setForeground(new java.awt.Color(114, 137, 218));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1000, 650));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
+        ikonica.setText("jLabel1");
+        ikonica.setMaximumSize(new java.awt.Dimension(150, 150));
+        ikonica.setMinimumSize(new java.awt.Dimension(150, 150));
+        ikonica.setPreferredSize(new java.awt.Dimension(150, 150));
 
         jTextField1.setBackground(new java.awt.Color(114, 137, 218));
         jTextField1.setToolTipText("");
@@ -67,23 +79,24 @@ public class LoginForma extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(44, 47, 51));
         jButton1.setText("Log in");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("jLabel2");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(114, 137, 218));
+        jLabel1.setText("Korisničko ime");
 
-        jLabel3.setText("jLabel3");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(114, 137, 218));
-        jLabel4.setText("Korisnicko ime");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(114, 137, 218));
-        jLabel5.setText("Lozinka");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(114, 137, 218));
+        jLabel2.setText("Lozinka");
 
         jPasswordField2.setBackground(new java.awt.Color(114, 137, 218));
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
@@ -92,50 +105,57 @@ public class LoginForma extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 51, 51));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(408, 408, 408)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                .addComponent(jTextField1))
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel2))
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(jPasswordField2))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)))
-                .addContainerGap(366, Short.MAX_VALUE))
+                        .addGap(425, 425, 425)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(50, 50, 50)
+                .addComponent(ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(7, 7, 7)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,6 +183,102 @@ public class LoginForma extends javax.swing.JFrame {
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField2ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        String korisnickoIme = jTextField1.getText();
+        String lozinka = String.valueOf(jPasswordField2.getPassword());
+        
+        //PROVERA DA LI JE KORISNICKO IME PRAZNO
+        if (korisnickoIme.isEmpty()) {
+
+            //ANIMACIJA U SLUCAJU DA JE KORISNICKO IME PRAZNO
+            String label3Text = "Korisničko ime ne sme da ostane prazno";
+
+            //LABELA 3 ANIMACIJA 1
+            int labela3BrzinaAnimacije1 = 10;
+            int labela3ZakasnjenjeAnimacije1 = 0;
+            int labela3CeloTrajanjeAnimacije1 = labela3BrzinaAnimacije1 * label3Text.length() + labela3ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(jLabel3, label3Text, labela3BrzinaAnimacije1, 0, labela3ZakasnjenjeAnimacije1);
+
+            //LABELA 3 ANIMACIJA 2
+            int labela3BrzinaAnimacije2 = 10;
+            int labela3ZakasnjenjeAnimacije2 = 3000;
+            int labela3CeloTrajanjeAnimacije2 = labela3BrzinaAnimacije2 * label3Text.length() + labela3ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(jLabel3, label3Text, labela3BrzinaAnimacije2, 1, labela3CeloTrajanjeAnimacije2);
+            
+            return;
+
+        }
+
+        //PROVERA DA LI KORISNICKO IME POSTOJI
+        if (!UcitaniPodaci.getListaKorisnickihImena().contains(korisnickoIme)) {
+
+            //ANIMACIJA U SLUCAJU DA KORISNICKO IME NE POSTOJI
+            String labela3Text = "Uneseno korisničko ime ne odgovara nijednom nalogu";
+
+            //LABELA 3 ANIMACIJA 1
+            int labela3BrzinaAnimacije1 = 10;
+            int labela3ZakasnjenjeAnimacije1 = 0;
+            int labela3CeloTrajanjeAnimacije1 = labela3BrzinaAnimacije1 * labela3Text.length() + labela3ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(jLabel3, labela3Text, labela3BrzinaAnimacije1, 0, labela3ZakasnjenjeAnimacije1);
+
+            //LABELA 3 ANIMACIJA 2
+            int labela3BrzinaAnimacije2 = 10;
+            int labela3ZakasnjenjeAnimacije2 = 3000;
+            int labela3CeloTrajanjeAnimacije2 = labela3BrzinaAnimacije2 * labela3Text.length() + labela3ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(jLabel3, labela3Text, labela3BrzinaAnimacije2, 1, labela3CeloTrajanjeAnimacije2);
+            
+            return;
+
+        }
+        
+        //PROVERA DA LI JE LOZINKA PRAZNA
+        if (lozinka.isEmpty()) {
+
+            //ANIMACIJA U SLUCAJU DA JE LOZINKA PRAZNA
+            String labela4Text = "Lozinka ne sme da ostane prazna";
+
+            //LABELA 4 ANIMACIJA 1
+            int labela4BrzinaAnimacije1 = 10;
+            int labela4ZakasnjenjeAnimacije1 = 0;
+            int labela4CeloTrajanjeAnimacije1 = labela4BrzinaAnimacije1 * labela4Text.length() + labela4ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(jLabel4, labela4Text, labela4BrzinaAnimacije1, 0, labela4ZakasnjenjeAnimacije1);
+
+            //LABELA 4 ANIMACIJA 2
+            int labela4BrzinaAnimacije2 = 10;
+            int labela4ZakasnjenjeAnimacije2 = 3000;
+            int labela4CeloTrajanjeAnimacije2 = labela4BrzinaAnimacije2 * labela4Text.length() + labela4ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(jLabel4, labela4Text, labela4BrzinaAnimacije2, 1, labela4CeloTrajanjeAnimacije2);
+            
+            return;
+
+        }
+
+        //PROVERA DA LI JE LOZINKA ISPRAVNA ZA UNESENO KORISNICKO IME
+        if (!UcitaniPodaci.getLozinkaIzKorisnickogImena(korisnickoIme).equals(lozinka)) {
+
+            //ANIMACIJA U SLUCAJU DA KORISNICKO IME NE POSTOJI
+            String label4Text = "Unesena lozinka ne odgovara tom korisničkom imenu";
+
+            //LABELA 4 ANIMACIJA 1
+            int labela4BrzinaAnimacije1 = 10;
+            int labela4ZakasnjenjeAnimacije1 = 0;
+            int labela4CeloTrajanjeAnimacije1 = labela4BrzinaAnimacije1 * label4Text.length() + labela4ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(jLabel4, label4Text, labela4BrzinaAnimacije1, 0, labela4ZakasnjenjeAnimacije1);
+
+            //LABELA 4 ANIMACIJA 2
+            int labela4BrzinaAnimacije2 = 10;
+            int labela4ZakasnjenjeAnimacije2 = 3000;
+            int labela4CeloTrajanjeAnimacije2 = labela4BrzinaAnimacije2 * label4Text.length() + labela4ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(jLabel4, label4Text, labela4BrzinaAnimacije2, 1, labela4CeloTrajanjeAnimacije2);
+            
+            return;
+
+        }
+
+
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -200,12 +316,12 @@ public class LoginForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ikonica;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
