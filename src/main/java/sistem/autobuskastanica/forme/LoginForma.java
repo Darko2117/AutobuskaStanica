@@ -51,7 +51,7 @@ public class LoginForma extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(44, 47, 51));
         jPanel1.setForeground(new java.awt.Color(114, 137, 218));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jTextField1.setBackground(new java.awt.Color(114, 137, 218));
@@ -135,7 +135,7 @@ public class LoginForma extends javax.swing.JFrame {
                     .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
