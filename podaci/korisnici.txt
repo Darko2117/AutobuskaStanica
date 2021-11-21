@@ -1,0 +1,2 @@
+IDZaposlenog:0	KorisnickoIme:darkohorvatovic	Lozinka:1234567890
+IDZaposlenog:1	KorisnickoIme:danijelmiklosi	Lozinka:0987654321
