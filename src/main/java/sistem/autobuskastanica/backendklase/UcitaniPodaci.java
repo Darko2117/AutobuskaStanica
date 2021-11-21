@@ -13,6 +13,29 @@ public class UcitaniPodaci {
     private static List<StatusZaposlenog> statusiZaposlenih = new ArrayList<>();
     private static List<Zaposlen> zaposleni = new ArrayList<>();
 
+    public static List<String> getListaKorisnickihImena() {
+
+        List<String> listaKorisnickihImena = new ArrayList<>();
+        for (Korisnik korisnik : getKorisnici()) {
+            listaKorisnickihImena.add(korisnik.getKorisnickoIme());
+        }
+
+        return listaKorisnickihImena;
+
+    }
+
+    public static String getLozinkaIzKorisnickogImena(String korisnickoIme) {
+
+        for (Korisnik korisnik : getKorisnici()) {
+            if (korisnik.getKorisnickoIme().equals(korisnickoIme)) {
+                return korisnik.getLozinka();
+            }
+        }
+
+        return null;
+
+    }
+
     public static void ucitajKorisnike() {
 
         korisnici.clear();
