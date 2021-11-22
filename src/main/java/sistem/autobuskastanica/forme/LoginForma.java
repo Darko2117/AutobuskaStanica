@@ -21,11 +21,22 @@ public class LoginForma extends javax.swing.JFrame {
      * Creates new form LoginForma
      */
     public LoginForma() {
+        
         initComponents();
         
-        LabelAnimacija.pokreni(jLabel1, jLabel1.getText(), 100, 0, 200);
-        LabelAnimacija.pokreni(jLabel2, jLabel2.getText(), 100, 0, 200);
+        pocetneAnimacije();
         
+    }
+    
+    private void pocetneAnimacije(){
+        
+        String korisnickoImeLabelaText = "Korisničko Ime";
+        String lozinkaLabelaText = "Lozinka";
+        KorisnickoImeLabela.setText("");
+        LozinkaLabela.setText("");
+        LabelAnimacija.pokreni(KorisnickoImeLabela, korisnickoImeLabelaText, 100, 0, 250);
+        LabelAnimacija.pokreni(LozinkaLabela, lozinkaLabelaText, 100, 0, 250);
+    
     }
 
     /**
@@ -38,14 +49,14 @@ public class LoginForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ikonica = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Ikonica = new javax.swing.JLabel();
+        KorisnickoImeLabela = new javax.swing.JLabel();
+        KorisnickoImeLabela1 = new javax.swing.JLabel();
+        KorisnickoImeTextField = new javax.swing.JTextField();
+        LozinkaLabela = new javax.swing.JLabel();
+        LozinkaLabela1 = new javax.swing.JLabel();
+        LozinkaPasswordField = new javax.swing.JPasswordField();
+        LogInButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AUTOBUSKA STANICA");
@@ -61,56 +72,58 @@ public class LoginForma extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
-        ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
-        ikonica.setText("jLabel1");
-        ikonica.setMaximumSize(new java.awt.Dimension(150, 150));
-        ikonica.setMinimumSize(new java.awt.Dimension(150, 150));
-        ikonica.setPreferredSize(new java.awt.Dimension(150, 150));
+        Ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
+        Ikonica.setText("jLabel1");
+        Ikonica.setMaximumSize(new java.awt.Dimension(150, 150));
+        Ikonica.setMinimumSize(new java.awt.Dimension(150, 150));
+        Ikonica.setPreferredSize(new java.awt.Dimension(150, 150));
 
-        jTextField1.setBackground(new java.awt.Color(114, 137, 218));
-        jTextField1.setToolTipText("");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        KorisnickoImeLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        KorisnickoImeLabela.setForeground(new java.awt.Color(114, 137, 218));
+        KorisnickoImeLabela.setText("Korisničko Ime");
+
+        KorisnickoImeLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        KorisnickoImeLabela1.setForeground(new java.awt.Color(255, 51, 51));
+
+        KorisnickoImeTextField.setBackground(new java.awt.Color(114, 137, 218));
+        KorisnickoImeTextField.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        KorisnickoImeTextField.setToolTipText("");
+        KorisnickoImeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                KorisnickoImeTextFieldActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(114, 137, 218));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(44, 47, 51));
-        jButton1.setText("Log in");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        LozinkaLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        LozinkaLabela.setForeground(new java.awt.Color(114, 137, 218));
+        LozinkaLabela.setText("Lozinka");
+
+        LozinkaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        LozinkaLabela1.setForeground(new java.awt.Color(255, 51, 51));
+
+        LozinkaPasswordField.setBackground(new java.awt.Color(114, 137, 218));
+        LozinkaPasswordField.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        LozinkaPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LozinkaPasswordFieldActionPerformed(evt);
+            }
+        });
+
+        LogInButton.setBackground(new java.awt.Color(114, 137, 218));
+        LogInButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        LogInButton.setForeground(new java.awt.Color(44, 47, 51));
+        LogInButton.setText("Log in");
+        LogInButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogInButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                LogInButtonMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LogInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LogInButtonActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(114, 137, 218));
-        jLabel1.setText("Korisničko ime");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(114, 137, 218));
-        jLabel2.setText("Lozinka");
-
-        jPasswordField2.setBackground(new java.awt.Color(114, 137, 218));
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 51, 51));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,42 +134,42 @@ public class LoginForma extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(425, 425, 425)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LozinkaLabela)
+                            .addComponent(KorisnickoImeLabela, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(LozinkaPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(KorisnickoImeTextField))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)))))
+                                    .addComponent(KorisnickoImeLabela1)
+                                    .addComponent(LozinkaLabela1)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(405, 405, 405)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(LogInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(KorisnickoImeLabela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(KorisnickoImeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(KorisnickoImeLabela1))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(LozinkaLabela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(LozinkaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LozinkaLabela1))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(LogInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(254, 254, 254))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,22 +186,22 @@ public class LoginForma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LogInButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void KorisnickoImeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KorisnickoImeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_KorisnickoImeTextFieldActionPerformed
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+    private void LozinkaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LozinkaPasswordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
+    }//GEN-LAST:event_LozinkaPasswordFieldActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void LogInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogInButtonMouseClicked
 
-        String korisnickoIme = jTextField1.getText();
-        String lozinka = String.valueOf(jPasswordField2.getPassword());
+        String korisnickoIme = KorisnickoImeTextField.getText();
+        String lozinka = String.valueOf(LozinkaPasswordField.getPassword());
         
         //PROVERA DA LI JE KORISNICKO IME PRAZNO
         if (korisnickoIme.isEmpty()) {
@@ -200,13 +213,13 @@ public class LoginForma extends javax.swing.JFrame {
             int labela3BrzinaAnimacije1 = 10;
             int labela3ZakasnjenjeAnimacije1 = 0;
             int labela3CeloTrajanjeAnimacije1 = labela3BrzinaAnimacije1 * label3Text.length() + labela3ZakasnjenjeAnimacije1;
-            LabelAnimacija.pokreni(jLabel3, label3Text, labela3BrzinaAnimacije1, 0, labela3ZakasnjenjeAnimacije1);
+            LabelAnimacija.pokreni(KorisnickoImeLabela1, label3Text, labela3BrzinaAnimacije1, 0, labela3ZakasnjenjeAnimacije1);
 
             //LABELA 3 ANIMACIJA 2
             int labela3BrzinaAnimacije2 = 10;
             int labela3ZakasnjenjeAnimacije2 = 3000;
             int labela3CeloTrajanjeAnimacije2 = labela3BrzinaAnimacije2 * label3Text.length() + labela3ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(jLabel3, label3Text, labela3BrzinaAnimacije2, 1, labela3CeloTrajanjeAnimacije2);
+            LabelAnimacija.pokreni(KorisnickoImeLabela1, label3Text, labela3BrzinaAnimacije2, 1, labela3CeloTrajanjeAnimacije2);
             
             return;
 
@@ -222,13 +235,13 @@ public class LoginForma extends javax.swing.JFrame {
             int labela3BrzinaAnimacije1 = 10;
             int labela3ZakasnjenjeAnimacije1 = 0;
             int labela3CeloTrajanjeAnimacije1 = labela3BrzinaAnimacije1 * labela3Text.length() + labela3ZakasnjenjeAnimacije1;
-            LabelAnimacija.pokreni(jLabel3, labela3Text, labela3BrzinaAnimacije1, 0, labela3ZakasnjenjeAnimacije1);
+            LabelAnimacija.pokreni(KorisnickoImeLabela1, labela3Text, labela3BrzinaAnimacije1, 0, labela3ZakasnjenjeAnimacije1);
 
             //LABELA 3 ANIMACIJA 2
             int labela3BrzinaAnimacije2 = 10;
             int labela3ZakasnjenjeAnimacije2 = 3000;
             int labela3CeloTrajanjeAnimacije2 = labela3BrzinaAnimacije2 * labela3Text.length() + labela3ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(jLabel3, labela3Text, labela3BrzinaAnimacije2, 1, labela3CeloTrajanjeAnimacije2);
+            LabelAnimacija.pokreni(KorisnickoImeLabela1, labela3Text, labela3BrzinaAnimacije2, 1, labela3CeloTrajanjeAnimacije2);
             
             return;
 
@@ -244,13 +257,13 @@ public class LoginForma extends javax.swing.JFrame {
             int labela4BrzinaAnimacije1 = 10;
             int labela4ZakasnjenjeAnimacije1 = 0;
             int labela4CeloTrajanjeAnimacije1 = labela4BrzinaAnimacije1 * labela4Text.length() + labela4ZakasnjenjeAnimacije1;
-            LabelAnimacija.pokreni(jLabel4, labela4Text, labela4BrzinaAnimacije1, 0, labela4ZakasnjenjeAnimacije1);
+            LabelAnimacija.pokreni(LozinkaLabela1, labela4Text, labela4BrzinaAnimacije1, 0, labela4ZakasnjenjeAnimacije1);
 
             //LABELA 4 ANIMACIJA 2
             int labela4BrzinaAnimacije2 = 10;
             int labela4ZakasnjenjeAnimacije2 = 3000;
             int labela4CeloTrajanjeAnimacije2 = labela4BrzinaAnimacije2 * labela4Text.length() + labela4ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(jLabel4, labela4Text, labela4BrzinaAnimacije2, 1, labela4CeloTrajanjeAnimacije2);
+            LabelAnimacija.pokreni(LozinkaLabela1, labela4Text, labela4BrzinaAnimacije2, 1, labela4CeloTrajanjeAnimacije2);
             
             return;
 
@@ -266,20 +279,20 @@ public class LoginForma extends javax.swing.JFrame {
             int labela4BrzinaAnimacije1 = 10;
             int labela4ZakasnjenjeAnimacije1 = 0;
             int labela4CeloTrajanjeAnimacije1 = labela4BrzinaAnimacije1 * label4Text.length() + labela4ZakasnjenjeAnimacije1;
-            LabelAnimacija.pokreni(jLabel4, label4Text, labela4BrzinaAnimacije1, 0, labela4ZakasnjenjeAnimacije1);
+            LabelAnimacija.pokreni(LozinkaLabela1, label4Text, labela4BrzinaAnimacije1, 0, labela4ZakasnjenjeAnimacije1);
 
             //LABELA 4 ANIMACIJA 2
             int labela4BrzinaAnimacije2 = 10;
             int labela4ZakasnjenjeAnimacije2 = 3000;
             int labela4CeloTrajanjeAnimacije2 = labela4BrzinaAnimacije2 * label4Text.length() + labela4ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(jLabel4, label4Text, labela4BrzinaAnimacije2, 1, labela4CeloTrajanjeAnimacije2);
+            LabelAnimacija.pokreni(LozinkaLabela1, label4Text, labela4BrzinaAnimacije2, 1, labela4CeloTrajanjeAnimacije2);
             
             return;
 
         }
 
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_LogInButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -317,14 +330,14 @@ public class LoginForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ikonica;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel Ikonica;
+    private javax.swing.JLabel KorisnickoImeLabela;
+    private javax.swing.JLabel KorisnickoImeLabela1;
+    private javax.swing.JTextField KorisnickoImeTextField;
+    private javax.swing.JButton LogInButton;
+    private javax.swing.JLabel LozinkaLabela;
+    private javax.swing.JLabel LozinkaLabela1;
+    private javax.swing.JPasswordField LozinkaPasswordField;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

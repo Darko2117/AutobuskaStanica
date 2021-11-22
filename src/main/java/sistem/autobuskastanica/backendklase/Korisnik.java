@@ -28,10 +28,6 @@ public class Korisnik {
 
     }
 
-    public Korisnik() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public String uString() {
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -42,8 +38,6 @@ public class Korisnik {
 
     }
     
-    
-
     public int getIDZaposlenog() {
         return IDZaposlenog;
     }
@@ -51,8 +45,6 @@ public class Korisnik {
     public void setIDZaposlenog(int IDZaposlenog) {
         this.IDZaposlenog = IDZaposlenog;
     }
-    
-    
     
     public String getKorisnickoIme() {
         return korisnickoIme;
@@ -68,10 +60,6 @@ public class Korisnik {
 
     public void setLozinka(String lozinka) {
         this.lozinka = lozinka;
-    }
-
-    public void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

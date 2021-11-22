@@ -12,24 +12,23 @@ public class UcitaniPodaci {
     private static List<Status> statusi = new ArrayList<>();
     private static List<StatusZaposlenog> statusiZaposlenih = new ArrayList<>();
     private static List<Zaposlen> zaposleni = new ArrayList<>();
-    
-    public static int getSlobodanID(){
-        
-        List<Integer> listaID= new ArrayList<>();
-        for(Korisnik korisnik : korisnici){
+
+    public static int getPrviSlobodanIDZaposlenog() {
+
+        List<Integer> listaID = new ArrayList<>();
+        for (Korisnik korisnik : korisnici) {
             listaID.add(korisnik.getIDZaposlenog());
         }
-        int slobodanID=0;
-        while (listaID.contains(slobodanID)){
+        
+        int slobodanID = 0;
+        while (listaID.contains(slobodanID)) {
             slobodanID++;
         }
-        
+
         return slobodanID;
-        
-        
+
     }
-    
-    
+
     public static List<String> getListaKorisnickihImena() {
 
         List<String> listaKorisnickihImena = new ArrayList<>();
@@ -38,7 +37,7 @@ public class UcitaniPodaci {
         }
 
         return listaKorisnickihImena;
-    
+
     }
 
     public static String getLozinkaIzKorisnickogImena(String korisnickoIme) {
