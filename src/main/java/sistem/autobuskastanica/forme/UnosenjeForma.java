@@ -5,6 +5,8 @@
 package sistem.autobuskastanica.forme;
 
 import java.io.FileWriter;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.Korisnik;
@@ -22,16 +24,18 @@ public class UnosenjeForma extends javax.swing.JFrame {
     /**
      * Creates new form UnosenjeForma
      */
+    private UnosenjeForma instanca = this;
+
     public UnosenjeForma() {
-        
+
         initComponents();
-        
+
         pocetneAnimacije();
-        
+
     }
-    
+
     private void pocetneAnimacije() {
-        
+
         String imeLabelaText = "Ime";
         String prezimeLabelaText = "Prezime";
         String korisnickoImeLabelaText = "Korisničko Ime";
@@ -47,7 +51,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         LabelAnimacija.pokreni(KorisnickoImeLabela, korisnickoImeLabelaText, 100, 0, 250);
         LabelAnimacija.pokreni(LozinkaLabela, lozinkaLabelaText, 100, 0, 250);
         LabelAnimacija.pokreni(StatusLabela, statusLabelaText, 100, 0, 250);
-        
+
     }
 
     /**
@@ -258,7 +262,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DodajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajButtonActionPerformed
-        
+
         FajlMenadzer.napraviPocetneFajlove();
         UcitaniPodaci.ucitajKorisnike(); //TODO: OBRISI
 
@@ -271,7 +275,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         String datumZasnivanjaRadnogOdnosa = Metode.getDatumStringDDMMGGGG();
         String datumPrestankaRadnogOdnosa = "-";
         int status = Metode.statusIntIzStringa((String) StatusComboBox.getSelectedItem());
-        
+
         String neispravnoPoljeText = "Polje nije validno";
 
         //Provera imena
@@ -286,12 +290,12 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
             //ImeLabela1 ANIMACIJA 2
             int ImeLabela1BrzinaAnimacije2 = 10;
-            int ImeLabela1ZakasnjenjeAnimacije2 = 3000;
+            int ImeLabela1ZakasnjenjeAnimacije2 = ImeLabela1CeloTrajanjeAnimacije1 + 3000;
             int ImeLabela1CeloTrajanjeAnimacije2 = ImeLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + ImeLabela1ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(ImeLabela1, neispravnoPoljeText, ImeLabela1BrzinaAnimacije2, 1, ImeLabela1CeloTrajanjeAnimacije2);
-            
+            LabelAnimacija.pokreni(ImeLabela1, neispravnoPoljeText, ImeLabela1BrzinaAnimacije2, 1, ImeLabela1ZakasnjenjeAnimacije2);
+
             return;
-            
+
         }
 
         //Provera prezimena
@@ -306,12 +310,12 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
             //PrezimeLabela1 ANIMACIJA 2
             int PrezimeLabela1BrzinaAnimacije2 = 10;
-            int PrezimeLabela1ZakasnjenjeAnimacije2 = 3000;
+            int PrezimeLabela1ZakasnjenjeAnimacije2 = PrezimeLabela1CeloTrajanjeAnimacije1 + 3000;
             int PrezimeLabela1CeloTrajanjeAnimacije2 = PrezimeLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + PrezimeLabela1ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(PrezimeLabela1, neispravnoPoljeText, PrezimeLabela1BrzinaAnimacije2, 1, PrezimeLabela1CeloTrajanjeAnimacije2);
-            
+            LabelAnimacija.pokreni(PrezimeLabela1, neispravnoPoljeText, PrezimeLabela1BrzinaAnimacije2, 1, PrezimeLabela1ZakasnjenjeAnimacije2);
+
             return;
-            
+
         }
 
         //Provera korisnickog imena
@@ -326,12 +330,12 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
             //KorisnickoImeLabela1 ANIMACIJA 2
             int KorisnickoImeLabela1BrzinaAnimacije2 = 10;
-            int KorisnickoImeLabela1ZakasnjenjeAnimacije2 = 3000;
+            int KorisnickoImeLabela1ZakasnjenjeAnimacije2 = KorisnickoImeLabela1CeloTrajanjeAnimacije1 + 3000;
             int KorisnickoImeLabela1CeloTrajanjeAnimacije2 = KorisnickoImeLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + KorisnickoImeLabela1ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(KorisnickoImeLabela1, neispravnoPoljeText, KorisnickoImeLabela1BrzinaAnimacije2, 1, KorisnickoImeLabela1CeloTrajanjeAnimacije2);
-            
+            LabelAnimacija.pokreni(KorisnickoImeLabela1, neispravnoPoljeText, KorisnickoImeLabela1BrzinaAnimacije2, 1, KorisnickoImeLabela1ZakasnjenjeAnimacije2);
+
             return;
-            
+
         }
         if (UcitaniPodaci.getListaKorisnickihImena().contains(korisnickoIme)) {
 
@@ -346,12 +350,12 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
             //KorisnickoImeLabela1 ANIMACIJA 2
             int KorisnickoImeLabela1BrzinaAnimacije2 = 10;
-            int KorisnickoImeLabela1ZakasnjenjeAnimacije2 = 3000;
+            int KorisnickoImeLabela1ZakasnjenjeAnimacije2 = KorisnickoImeLabela1CeloTrajanjeAnimacije1 + 3000;
             int KorisnickoImeLabela1CeloTrajanjeAnimacije2 = KorisnickoImeLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + KorisnickoImeLabela1ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(KorisnickoImeLabela1, neispravnoPoljeText, KorisnickoImeLabela1BrzinaAnimacije2, 1, KorisnickoImeLabela1CeloTrajanjeAnimacije2);
-            
+            LabelAnimacija.pokreni(KorisnickoImeLabela1, neispravnoPoljeText, KorisnickoImeLabela1BrzinaAnimacije2, 1, KorisnickoImeLabela1ZakasnjenjeAnimacije2);
+
             return;
-            
+
         }
 
         //Provera lozinke
@@ -366,18 +370,18 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
             //LozinkaLabela1 ANIMACIJA 2
             int LozinkaLabela1BrzinaAnimacije2 = 10;
-            int LozinkaLabela1ZakasnjenjeAnimacije2 = 3000;
+            int LozinkaLabela1ZakasnjenjeAnimacije2 = LozinkaLabela1CeloTrajanjeAnimacije1 + 3000;
             int LozinkaLabela1CeloTrajanjeAnimacije2 = LozinkaLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + LozinkaLabela1ZakasnjenjeAnimacije2;
-            LabelAnimacija.pokreni(LozinkaLabela1, neispravnoPoljeText, LozinkaLabela1BrzinaAnimacije2, 1, LozinkaLabela1CeloTrajanjeAnimacije2);
-            
+            LabelAnimacija.pokreni(LozinkaLabela1, neispravnoPoljeText, LozinkaLabela1BrzinaAnimacije2, 1, LozinkaLabela1ZakasnjenjeAnimacije2);
+
             return;
-            
+
         }
-        
+
         Korisnik korisnik = new Korisnik(IDZaposlenog, korisnickoIme, lozinka);
         FajlMenadzer.pisiFajl(Korisnik.imeFajla, korisnik.uString());
         UcitaniPodaci.ucitajKorisnike();
-        
+
         Zaposlen zaposlen = new Zaposlen(IDZaposlenog, ime, prezime, datumZasnivanjaRadnogOdnosa, datumPrestankaRadnogOdnosa, status);
         FajlMenadzer.pisiFajl(Zaposlen.imeFajla, zaposlen.uString());
         UcitaniPodaci.ucitajZaposlene();
@@ -392,14 +396,33 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
         //UspesnoUnosenjeLabela ANIMACIJA 2
         int UspesnoUnosenjeLabelaBrzinaAnimacije2 = 10;
-        int UspesnoUnosenjeLabelaZakasnjenjeAnimacije2 = 3000;
+        int UspesnoUnosenjeLabelaZakasnjenjeAnimacije2 = UspesnoUnosenjeLabelaCeloTrajanjeAnimacije1 + 3000;
         int UspesnoUnosenjeLabelaCeloTrajanjeAnimacije2 = UspesnoUnosenjeLabelaBrzinaAnimacije2 * uspesnoUnosenjeText.length() + UspesnoUnosenjeLabelaZakasnjenjeAnimacije2;
-        LabelAnimacija.pokreni(UspesnoUnosenjeLabela, uspesnoUnosenjeText, UspesnoUnosenjeLabelaBrzinaAnimacije2, 1, UspesnoUnosenjeLabelaCeloTrajanjeAnimacije2);
+        LabelAnimacija.pokreni(UspesnoUnosenjeLabela, uspesnoUnosenjeText, UspesnoUnosenjeLabelaBrzinaAnimacije2, 1, UspesnoUnosenjeLabelaZakasnjenjeAnimacije2);
+
+        //Prelaz na Login formu u slucaju da je ovo bilo unosenje prvog korisnika
+        if (UcitaniPodaci.getKorisnici().size() == 1) {
+
+            Timer timer = new Timer();
+
+            TimerTask timerTask = new TimerTask() {
+                public void run() {
+
+                    LoginForma loginForma = new LoginForma();
+                    loginForma.setLocation(instanca.getLocation());
+                    loginForma.setVisible(true);
+                    instanca.dispose();
+
+                }
+            };
+            timer.schedule(timerTask, UspesnoUnosenjeLabelaCeloTrajanjeAnimacije2);
+
+        }
 
     }//GEN-LAST:event_DodajButtonActionPerformed
 
     private void OcistiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OcistiButtonActionPerformed
-        
+
         ImeTextField.setText("");
         PrezimeTextField.setText("");
         KorisnickoImeTextField.setText("");

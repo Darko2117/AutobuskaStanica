@@ -122,6 +122,7 @@ public class PrvaForma extends javax.swing.JFrame {
                         public void run() {
 
                             UnosenjeForma unosenjeForma = new UnosenjeForma();
+                            unosenjeForma.setLocation(instanca.getLocation());
                             unosenjeForma.setVisible(true);
                             instanca.dispose();
 
