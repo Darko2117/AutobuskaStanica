@@ -6,6 +6,8 @@ package sistem.autobuskastanica.backendklase;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -18,11 +20,11 @@ public class Metode {
 
     public static String getDatumStringDDMMGGGG() {
 
-        StringBuilder datum = new StringBuilder();
-
         int dan = LocalDate.now().getDayOfMonth();
         int mesec = LocalDate.now().getMonthValue();
         int godina = LocalDate.now().getYear();
+
+        StringBuilder datum = new StringBuilder();
 
         if (dan < 10) {
             datum.append("0");
@@ -42,16 +44,35 @@ public class Metode {
 
     }
 
+    public static String getVremeString() {
+
+        int sat = GregorianCalendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int minut = GregorianCalendar.getInstance().get(Calendar.MINUTE);
+
+        StringBuilder vreme = new StringBuilder();
+
+        if (sat < 10) {
+            vreme.append("0");
+        }
+        vreme.append(sat);
+        
+        vreme.append(":");
+
+        if (minut < 10) {
+            vreme.append("0");
+        }
+        vreme.append(minut);
+
+        return vreme.toString();
+
+    }
+
     public static Integer statusIntIzStringa(String statusString) {
 
-        if (statusString.equalsIgnoreCase("radnik")) {
-            return 0;
-        }
-        if (statusString.equalsIgnoreCase("menadžer")) {
-            return 1;
-        }
-        if (statusString.equalsIgnoreCase("obrisan")) {
-            return 2;
+        for (Status status : UcitaniPodaci.getStatusi()) {
+            if (status.getStatus().equalsIgnoreCase(statusString)) {
+                return status.getBr();
+            }
         }
 
         return null;
@@ -60,14 +81,10 @@ public class Metode {
 
     public static String statusStringIzInta(int statusInt) {
 
-        if (statusInt == 0) {
-            return "radnik";
-        }
-        if (statusInt == 1) {
-            return "menadžer";
-        }
-        if (statusInt == 2) {
-            return "obrisan";
+        for (Status status : UcitaniPodaci.getStatusi()) {
+            if (status.getBr() == statusInt) {
+                return status.getStatus();
+            }
         }
 
         return null;

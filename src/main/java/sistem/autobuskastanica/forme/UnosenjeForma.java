@@ -12,6 +12,8 @@ import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.Korisnik;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.Metode;
+import sistem.autobuskastanica.backendklase.Status;
+import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
 
@@ -148,7 +150,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         StatusLabela.setText("Status");
 
         StatusComboBox.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RADNIK", "MENADŽER" }));
+        StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RADNIK", "MENADZER" }));
 
         DodajButton.setBackground(new java.awt.Color(114, 137, 218));
         DodajButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -274,6 +276,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         String lozinka = LozinkaTextField.getText();
         String datumZasnivanjaRadnogOdnosa = Metode.getDatumStringDDMMGGGG();
         String datumPrestankaRadnogOdnosa = "-";
+        String vreme = Metode.getVremeString();
         int status = Metode.statusIntIzStringa((String) StatusComboBox.getSelectedItem());
 
         String neispravnoPoljeText = "Polje nije validno";
@@ -385,6 +388,10 @@ public class UnosenjeForma extends javax.swing.JFrame {
         Zaposlen zaposlen = new Zaposlen(IDZaposlenog, ime, prezime, datumZasnivanjaRadnogOdnosa, datumPrestankaRadnogOdnosa, status);
         FajlMenadzer.pisiFajl(Zaposlen.imeFajla, zaposlen.uString());
         UcitaniPodaci.ucitajZaposlene();
+        
+        StatusZaposlenog statusZaposlenog = new StatusZaposlenog(IDZaposlenog, datumZasnivanjaRadnogOdnosa, vreme, status);
+        FajlMenadzer.pisiFajl(statusZaposlenog.imeFajla, statusZaposlenog.uString());
+        UcitaniPodaci.ucitajStatuseZaposlenih();
 
         //Animacija za uspesno unosenje
         String uspesnoUnosenjeText = "Unošenje korisnika je uspelo!";

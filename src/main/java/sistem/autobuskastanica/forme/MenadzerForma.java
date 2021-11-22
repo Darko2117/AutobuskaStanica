@@ -16,6 +16,14 @@ public class MenadzerForma extends javax.swing.JFrame {
     public MenadzerForma() {
         initComponents();
     }
+    
+    public MenadzerForma(int IDZaposlenog) {
+        
+        initComponents();
+        
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +35,33 @@ public class MenadzerForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Labela1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        dodaj = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        otkaz = new javax.swing.JButton();
-        unapredi = new javax.swing.JButton();
+        UnaprediButton = new javax.swing.JButton();
+        DajOtkazButton = new javax.swing.JButton();
+        DodajButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AUTOBUSKA STANICA");
         setBackground(new java.awt.Color(44, 47, 51));
+        setMaximumSize(new java.awt.Dimension(1000, 650));
+        setMinimumSize(new java.awt.Dimension(1000, 650));
+        setSize(new java.awt.Dimension(1000, 650));
 
         jPanel1.setBackground(new java.awt.Color(44, 47, 51));
         jPanel1.setForeground(new java.awt.Color(44, 47, 51));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1000, 650));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
+
+        Labela1.setFont(new java.awt.Font("Tahoma", 1, 50)); // NOI18N
+        Labela1.setForeground(new java.awt.Color(114, 137, 218));
+        Labela1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Labela1.setText("MENADŽER");
 
         jTable1.setBackground(new java.awt.Color(114, 137, 218));
+        jTable1.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         jTable1.setForeground(new java.awt.Color(114, 137, 218));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -54,115 +74,95 @@ public class MenadzerForma extends javax.swing.JFrame {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "IME", "PREZIME", "Datum zaposlenja", "Datum prestanka", "Status"
+                "ID", "Ime", "Prezime", "Datum zapošljavanja", "Datum prestanka radnog odnosa", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setMaximumSize(new java.awt.Dimension(800, 300));
+        jTable1.setMinimumSize(new java.awt.Dimension(800, 300));
+        jTable1.setPreferredSize(new java.awt.Dimension(800, 300));
+        jTable1.setRowHeight(40);
+        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
-        dodaj.setText("+");
-        dodaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        dodaj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dodajActionPerformed(evt);
-            }
-        });
+        UnaprediButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        UnaprediButton.setForeground(new java.awt.Color(153, 255, 153));
+        UnaprediButton.setText("UNAPREDI");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(114, 137, 218));
-        jLabel1.setText("MENADZER");
+        DajOtkazButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        DajOtkazButton.setForeground(new java.awt.Color(255, 51, 51));
+        DajOtkazButton.setText("DAJ OTKAZ");
 
-        otkaz.setBackground(new java.awt.Color(114, 137, 218));
-        otkaz.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        otkaz.setForeground(new java.awt.Color(44, 47, 51));
-        otkaz.setText("Otkaz");
-        otkaz.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        otkaz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otkazActionPerformed(evt);
-            }
-        });
-
-        unapredi.setBackground(new java.awt.Color(114, 137, 218));
-        unapredi.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        unapredi.setForeground(new java.awt.Color(44, 47, 51));
-        unapredi.setText("Unapredi");
-        unapredi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        unapredi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unaprediActionPerformed(evt);
-            }
-        });
+        DodajButton.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        DodajButton.setForeground(new java.awt.Color(255, 255, 255));
+        DodajButton.setText("+");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(348, 348, 348))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(Labela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(unapredi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(otkaz)
+                        .addComponent(UnaprediButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(DajOtkazButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dodaj))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(271, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(61, 61, 61))
+                        .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(Labela1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(otkaz)
-                    .addComponent(unapredi)
-                    .addComponent(dodaj))
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(UnaprediButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DajOtkazButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void otkazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otkazActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_otkazActionPerformed
-
-    private void unaprediActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unaprediActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_unaprediActionPerformed
-
-    private void dodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dodajActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dodajActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,12 +200,12 @@ public class MenadzerForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton dodaj;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton DajOtkazButton;
+    private javax.swing.JButton DodajButton;
+    private javax.swing.JLabel Labela1;
+    private javax.swing.JButton UnaprediButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton otkaz;
-    private javax.swing.JButton unapredi;
     // End of variables declaration//GEN-END:variables
 }
