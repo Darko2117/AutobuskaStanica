@@ -19,7 +19,7 @@ public class UcitaniPodaci {
         for (Korisnik korisnik : korisnici) {
             listaID.add(korisnik.getIDZaposlenog());
         }
-        
+
         int slobodanID = 0;
         while (listaID.contains(slobodanID)) {
             slobodanID++;
@@ -40,11 +40,23 @@ public class UcitaniPodaci {
 
     }
 
-    public static String getLozinkaIzKorisnickogImena(String korisnickoIme) {
+    public static Zaposlen getZaposlenIzIDZaposlenog(int IDZaposlenog) {
+
+        for (Zaposlen zaposlen : getZaposleni()) {
+            if (zaposlen.getID() == IDZaposlenog) {
+                return zaposlen;
+            }
+        }
+
+        return null;
+
+    }
+
+    public static Korisnik getKorisnikIzKorisnickogImena(String korisnickoIme) {
 
         for (Korisnik korisnik : getKorisnici()) {
             if (korisnik.getKorisnickoIme().equals(korisnickoIme)) {
-                return korisnik.getLozinka();
+                return korisnik;
             }
         }
 
