@@ -34,6 +34,11 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
         pocetneAnimacije();
 
+        //U slucaju da je ovo unosenje prvog zaposlenog, postavlja se da to moze biti samo menadzer
+        if (UcitaniPodaci.getKorisnici().size() == 0) {
+            StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"MENADZER"}));
+        }
+
     }
 
     private void pocetneAnimacije() {
@@ -388,7 +393,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         Zaposlen zaposlen = new Zaposlen(IDZaposlenog, ime, prezime, datumZasnivanjaRadnogOdnosa, datumPrestankaRadnogOdnosa, status);
         FajlMenadzer.pisiFajl(Zaposlen.imeFajla, zaposlen.uString());
         UcitaniPodaci.ucitajZaposlene();
-        
+
         StatusZaposlenog statusZaposlenog = new StatusZaposlenog(IDZaposlenog, datumZasnivanjaRadnogOdnosa, vreme, status);
         FajlMenadzer.pisiFajl(statusZaposlenog.imeFajla, statusZaposlenog.uString());
         UcitaniPodaci.ucitajStatuseZaposlenih();
