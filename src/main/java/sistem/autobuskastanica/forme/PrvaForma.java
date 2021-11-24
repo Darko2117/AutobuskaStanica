@@ -31,6 +31,7 @@ public class PrvaForma extends javax.swing.JFrame {
         UcitaniPodaci.ucitajZaposlene();
 
         initComponents();
+        instanca.setLocationRelativeTo(null); //Centrira jFrame na sredini ekrana
 
         pocetneAnimacije();
 
