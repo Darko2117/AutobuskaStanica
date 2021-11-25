@@ -64,6 +64,20 @@ public class UcitaniPodaci {
 
     }
 
+    public static List<StatusZaposlenog> getStatusiZaposlenog(Zaposlen zaposlen) {
+
+        List<StatusZaposlenog> statusiZaposlenog = new ArrayList<>();
+
+        for (StatusZaposlenog statusZaposlenog : statusiZaposlenih) {
+            if (statusZaposlenog.getIDZaposlenog() == zaposlen.getID()) {
+                statusiZaposlenog.add(statusZaposlenog);
+            }
+        }
+
+        return statusiZaposlenog;
+
+    }
+
     public static void ucitajKorisnike() {
 
         korisnici.clear();

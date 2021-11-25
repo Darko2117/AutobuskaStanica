@@ -27,6 +27,7 @@ public class MenadzerForma extends javax.swing.JFrame {
     /**
      * Creates new form MenadzerForma
      */
+    int selektovanRed = -1;
     Zaposlen selektovanZaposlen;
     private MenadzerForma instanca = this;
     Zaposlen vlasnikForme;
@@ -42,11 +43,11 @@ public class MenadzerForma extends javax.swing.JFrame {
 
     }
 
-    public MenadzerForma(int IDZaposlenog) {
+    public MenadzerForma(Zaposlen zaposlen) {
 
         initComponents();
 
-        vlasnikForme = UcitaniPodaci.getZaposlenIzIDZaposlenog(IDZaposlenog);
+        vlasnikForme = zaposlen;
         Labela1.setText(Labela1.getText().concat(": " + vlasnikForme.getIme() + " " + vlasnikForme.getPrezime()));
 
         ucitajTabelu();
@@ -62,7 +63,7 @@ public class MenadzerForma extends javax.swing.JFrame {
         UcitaniPodaci.ucitajZaposlene();
         UcitaniPodaci.ucitajStatuse();
 
-        DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel defaultTableModel = (DefaultTableModel) Tabela.getModel();
         defaultTableModel.setRowCount(0);
 
         for (Zaposlen zaposlen : UcitaniPodaci.getZaposleni()) {
@@ -82,19 +83,19 @@ public class MenadzerForma extends javax.swing.JFrame {
         //Centriranje teksta u celijama
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-        jTable1.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        jTable1.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
-        jTable1.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-        jTable1.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
-        jTable1.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-        jTable1.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+        Tabela.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        Tabela.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+        Tabela.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        Tabela.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+        Tabela.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        Tabela.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
 
         //Centriranje teksta u headeru tabele
-        TableCellRenderer rendererFromHeader = jTable1.getTableHeader().getDefaultRenderer();
+        TableCellRenderer rendererFromHeader = Tabela.getTableHeader().getDefaultRenderer();
         JLabel headerLabel = (JLabel) rendererFromHeader;
         headerLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        jTable1.setModel(defaultTableModel);
+        Tabela.setModel(defaultTableModel);
 
     }
 
@@ -108,7 +109,7 @@ public class MenadzerForma extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Labela1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabela = new javax.swing.JTable();
         UnaprediButton = new javax.swing.JButton();
         DajOtkazButton = new javax.swing.JButton();
         DodajButton = new javax.swing.JButton();
@@ -136,10 +137,10 @@ public class MenadzerForma extends javax.swing.JFrame {
         Labela1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Labela1.setText("MENADŽER");
 
-        jTable1.setBackground(new java.awt.Color(114, 137, 218));
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabela.setBackground(new java.awt.Color(114, 137, 218));
+        Tabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Tabela.setForeground(new java.awt.Color(0, 0, 0));
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -155,16 +156,16 @@ public class MenadzerForma extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(800, 300));
-        jTable1.setMinimumSize(new java.awt.Dimension(800, 300));
-        jTable1.setRowHeight(40);
-        jTable1.setShowGrid(true);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Tabela.setMaximumSize(new java.awt.Dimension(800, 300));
+        Tabela.setMinimumSize(new java.awt.Dimension(800, 300));
+        Tabela.setRowHeight(40);
+        Tabela.setShowGrid(true);
+        Tabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                TabelaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabela);
 
         UnaprediButton.setBackground(new java.awt.Color(44, 44, 44));
         UnaprediButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -252,20 +253,30 @@ public class MenadzerForma extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DodajButtonMouseClicked
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaMouseClicked
 
-        selektovanZaposlen = UcitaniPodaci.getZaposlenIzIDZaposlenog((int) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        if(selektovanRed == Tabela.getSelectedRow()){
+        
+            InformacijeZaposlenog informacijeZaposlenog = new InformacijeZaposlenog(UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0)));
+            informacijeZaposlenog.setLocation(instanca.getLocation());
+            informacijeZaposlenog.setVisible(true);
+            instanca.dispose();
+        
+        }
+        
+        selektovanRed = Tabela.getSelectedRow();
+        selektovanZaposlen = UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0));
 
         UnaprediButton.setEnabled(selektovanZaposlen.getStatus() == 0);
         DajOtkazButton.setEnabled(selektovanZaposlen.getStatus() != 2);
 
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_TabelaMouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
 
         UnaprediButton.setEnabled(false);
         DajOtkazButton.setEnabled(false);
-        jTable1.clearSelection();
+        Tabela.clearSelection();
 
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -289,7 +300,9 @@ public class MenadzerForma extends javax.swing.JFrame {
 
             UnaprediButton.setEnabled(false);
             DajOtkazButton.setEnabled(false);
-            jTable1.clearSelection();
+            Tabela.clearSelection();
+            selektovanZaposlen = null;
+            selektovanRed = -1;
 
         }
 
@@ -316,7 +329,9 @@ public class MenadzerForma extends javax.swing.JFrame {
 
             UnaprediButton.setEnabled(false);
             DajOtkazButton.setEnabled(false);
-            jTable1.clearSelection();
+            Tabela.clearSelection();
+            selektovanZaposlen = null;
+            selektovanRed = -1;
 
         }
 
@@ -361,9 +376,9 @@ public class MenadzerForma extends javax.swing.JFrame {
     private javax.swing.JButton DajOtkazButton;
     private javax.swing.JButton DodajButton;
     private javax.swing.JLabel Labela1;
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton UnaprediButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,9 +4,6 @@
  */
 package sistem.autobuskastanica.forme;
 
-import java.util.ArrayList;
-import java.util.List;
-import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.Korisnik;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
@@ -288,7 +285,7 @@ public class LoginForma extends javax.swing.JFrame {
 
         if (zaposlen.getStatus() == 1) {
 
-            MenadzerForma menadzerForma = new MenadzerForma(zaposlen.getID());
+            MenadzerForma menadzerForma = new MenadzerForma(zaposlen);
             menadzerForma.setLocation(instanca.getLocation());
             menadzerForma.setVisible(true);
             instanca.dispose();
