@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import sistem.autobuskastanica.backendklase.Metode;
 import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
@@ -23,9 +22,12 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
     /**
      * Creates new form InformacijeZaposlenog
      */
-    Zaposlen vlasnikForme;
+    private Zaposlen oKomeJeForma, vlasnikForme;
+    private InformacijeZaposlenog instanca;
 
     public InformacijeZaposlenog() {
+        
+        instanca = this;
 
         initComponents();
 
@@ -33,12 +35,15 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
     }
 
-    public InformacijeZaposlenog(Zaposlen zaposlen) {
+    public InformacijeZaposlenog(Zaposlen oKomeJeForma, Zaposlen vlasnikForme) {
+        
+        instanca = this;
 
         initComponents();
-
-        vlasnikForme = zaposlen;
-        Labela1.setText("ID: " + zaposlen.getID() + " " + zaposlen.getIme() + " " + zaposlen.getPrezime());
+        
+        this.oKomeJeForma = oKomeJeForma;
+        this.vlasnikForme = vlasnikForme;
+        Labela1.setText("ID: " + oKomeJeForma.getID() + " " + oKomeJeForma.getIme() + " " + oKomeJeForma.getPrezime());
 
         ucitajTabelu();
 
@@ -46,7 +51,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
     private void ucitajTabelu() {
 
-        if (vlasnikForme == null) {
+        if (oKomeJeForma == null) {
             return;
         }
 
@@ -58,9 +63,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         DefaultTableModel defaultTableModel = (DefaultTableModel) Tabela.getModel();
         defaultTableModel.setRowCount(0);
         
-        System.out.println(UcitaniPodaci.getStatusiZaposlenog(vlasnikForme));
-
-        for (StatusZaposlenog statusZaposlenog : UcitaniPodaci.getStatusiZaposlenog(vlasnikForme)) {
+        for (StatusZaposlenog statusZaposlenog : UcitaniPodaci.getStatusiZaposlenog(oKomeJeForma)) {
 
             Vector<Object> redPodaci = new Vector<>();
             redPodaci.add(statusZaposlenog.getDatum());
@@ -68,7 +71,6 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
             redPodaci.add(statusZaposlenog.getIDStatusa());
 
             defaultTableModel.addRow(redPodaci);
-            System.out.println(redPodaci);
 
         }
 
@@ -99,11 +101,11 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         Labela1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
+        BackLabela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
-        setPreferredSize(new java.awt.Dimension(1000, 650));
         setSize(new java.awt.Dimension(1000, 650));
 
         jPanel1.setBackground(new java.awt.Color(44, 44, 44));
@@ -141,24 +143,44 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         Tabela.setShowGrid(true);
         jScrollPane1.setViewportView(Tabela);
 
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Labela1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BackLabela)))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addContainerGap()
+                .addComponent(BackLabela)
+                .addGap(18, 18, 18)
                 .addComponent(Labela1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,6 +196,27 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
+
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+        
+    }//GEN-LAST:event_BackLabelaMouseEntered
+
+    private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
+
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png")));
+        
+    }//GEN-LAST:event_BackLabelaMouseExited
+
+    private void BackLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseClicked
+
+        MenadzerForma menadzerForma = new MenadzerForma(vlasnikForme);
+        menadzerForma.setLocation(instanca.getLocation());
+        menadzerForma.setVisible(true);
+        instanca.dispose();
+        
+    }//GEN-LAST:event_BackLabelaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -211,6 +254,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackLabela;
     private javax.swing.JLabel Labela1;
     private javax.swing.JTable Tabela;
     private javax.swing.JPanel jPanel1;

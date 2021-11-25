@@ -4,15 +4,12 @@
  */
 package sistem.autobuskastanica.forme;
 
-import java.io.FileWriter;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.swing.JOptionPane;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.Korisnik;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.Metode;
-import sistem.autobuskastanica.backendklase.Status;
 import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
@@ -26,18 +23,29 @@ public class UnosenjeForma extends javax.swing.JFrame {
     /**
      * Creates new form UnosenjeForma
      */
+    private Zaposlen vlasnikForme;
     private UnosenjeForma instanca = this;
 
+    //Ovaj konstruktor se koristi samo kada je program u procesu unosenja prvog korisnika
     public UnosenjeForma() {
 
         initComponents();
 
         pocetneAnimacije();
 
-        //U slucaju da je ovo unosenje prvog zaposlenog, postavlja se da to moze biti samo menadzer
-        if (UcitaniPodaci.getKorisnici().isEmpty()) {
-            StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"MENADZER"}));
-        }
+        BackLabela.setVisible(false);
+        StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"MENADZER"}));
+
+    }
+
+    //Ovaj konstruktor se koristi za sve ostale prilike
+    public UnosenjeForma(Zaposlen zaposlen) {
+
+        vlasnikForme = zaposlen;
+
+        initComponents();
+
+        pocetneAnimacije();
 
     }
 
@@ -68,8 +76,6 @@ public class UnosenjeForma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel9 = new javax.swing.JLabel();
-        ime4 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         ImeLabela = new javax.swing.JLabel();
         ImeLabela1 = new javax.swing.JLabel();
@@ -88,11 +94,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         DodajButton = new javax.swing.JButton();
         OcistiButton = new javax.swing.JButton();
         UspesnoUnosenjeLabela = new javax.swing.JLabel();
-
-        jLabel9.setBackground(new java.awt.Color(114, 137, 218));
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(114, 137, 218));
-        jLabel9.setText("Ime");
+        BackLabela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AUTOBUSKA STANICA");
@@ -182,42 +184,62 @@ public class UnosenjeForma extends javax.swing.JFrame {
         UspesnoUnosenjeLabela.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         UspesnoUnosenjeLabela.setForeground(new java.awt.Color(0, 153, 51));
 
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(350, 350, 350)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UspesnoUnosenjeLabela)
-                    .addComponent(LozinkaLabela)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(StatusLabela)
-                            .addComponent(LozinkaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(KorisnickoImeLabela)
-                            .addComponent(KorisnickoImeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(PrezimeLabela)
-                            .addComponent(PrezimeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(ImeLabela)
-                            .addComponent(ImeTextField)
-                            .addComponent(StatusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(350, 350, 350)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ImeLabela1)
-                            .addComponent(PrezimeLabela1)
-                            .addComponent(KorisnickoImeLabela1)
-                            .addComponent(LozinkaLabela1)))
+                            .addComponent(UspesnoUnosenjeLabela)
+                            .addComponent(LozinkaLabela)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(StatusLabela)
+                                    .addComponent(LozinkaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(KorisnickoImeLabela)
+                                    .addComponent(KorisnickoImeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(PrezimeLabela)
+                                    .addComponent(PrezimeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(ImeLabela)
+                                    .addComponent(ImeTextField)
+                                    .addComponent(StatusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ImeLabela1)
+                                    .addComponent(PrezimeLabela1)
+                                    .addComponent(KorisnickoImeLabela1)
+                                    .addComponent(LozinkaLabela1)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(OcistiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(OcistiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(BackLabela)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addContainerGap()
+                .addComponent(BackLabela)
+                .addGap(50, 50, 50)
                 .addComponent(ImeLabela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -270,8 +292,10 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
     private void DodajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajButtonActionPerformed
 
-        if(!DodajButton.isEnabled()) return;
-        
+        if (!DodajButton.isEnabled()) {
+            return;
+        }
+
         FajlMenadzer.napraviPocetneFajlove();
         UcitaniPodaci.ucitajKorisnike(); //TODO: OBRISI
         UcitaniPodaci.ucitajZaposlene();
@@ -417,10 +441,10 @@ public class UnosenjeForma extends javax.swing.JFrame {
         LabelAnimacija.pokreni(UspesnoUnosenjeLabela, uspesnoUnosenjeText, UspesnoUnosenjeLabelaBrzinaAnimacije2, 1, UspesnoUnosenjeLabelaZakasnjenjeAnimacije2);
 
         //Prelaz na Login formu u slucaju da je ovo bilo unosenje prvog korisnika
-        DodajButton.setEnabled(false);
-        OcistiButton.setEnabled(false);
-        
         if (UcitaniPodaci.getKorisnici().size() == 1) {
+
+            DodajButton.setEnabled(false);
+            OcistiButton.setEnabled(false);
 
             Timer timer = new Timer();
 
@@ -442,8 +466,10 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
     private void OcistiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OcistiButtonActionPerformed
 
-        if(!OcistiButton.isEnabled()) return;
-        
+        if (!OcistiButton.isEnabled()) {
+            return;
+        }
+
         ImeTextField.setText("");
         PrezimeTextField.setText("");
         KorisnickoImeTextField.setText("");
@@ -451,6 +477,27 @@ public class UnosenjeForma extends javax.swing.JFrame {
         StatusComboBox.setSelectedIndex(0);
 
     }//GEN-LAST:event_OcistiButtonActionPerformed
+
+    private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
+
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+
+    }//GEN-LAST:event_BackLabelaMouseEntered
+
+    private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
+
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png")));
+
+    }//GEN-LAST:event_BackLabelaMouseExited
+
+    private void BackLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseClicked
+
+        MenadzerForma menadzerForma = new MenadzerForma(vlasnikForme);
+        menadzerForma.setLocation(instanca.getLocation());
+        menadzerForma.setVisible(true);
+        instanca.dispose();
+
+    }//GEN-LAST:event_BackLabelaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -488,6 +535,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackLabela;
     private javax.swing.JButton DodajButton;
     private javax.swing.JLabel ImeLabela;
     private javax.swing.JLabel ImeLabela1;
@@ -505,8 +553,6 @@ public class UnosenjeForma extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> StatusComboBox;
     private javax.swing.JLabel StatusLabela;
     private javax.swing.JLabel UspesnoUnosenjeLabela;
-    private javax.swing.JTextField ime4;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

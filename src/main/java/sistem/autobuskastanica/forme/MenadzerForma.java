@@ -113,6 +113,7 @@ public class MenadzerForma extends javax.swing.JFrame {
         UnaprediButton = new javax.swing.JButton();
         DajOtkazButton = new javax.swing.JButton();
         DodajButton = new javax.swing.JButton();
+        BackLabela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AUTOBUSKA STANICA");
@@ -197,27 +198,47 @@ public class MenadzerForma extends javax.swing.JFrame {
             }
         });
 
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Labela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(UnaprediButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(DajOtkazButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(100, 100, 100))
+                        .addGap(100, 100, 100)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(UnaprediButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(DajOtkazButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BackLabela)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addContainerGap()
+                .addComponent(BackLabela)
+                .addGap(18, 18, 18)
                 .addComponent(Labela1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,7 +248,7 @@ public class MenadzerForma extends javax.swing.JFrame {
                         .addComponent(UnaprediButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(DajOtkazButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(DodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,7 +267,7 @@ public class MenadzerForma extends javax.swing.JFrame {
 
     private void DodajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DodajButtonMouseClicked
 
-        UnosenjeForma unosenjeForma = new UnosenjeForma();
+        UnosenjeForma unosenjeForma = new UnosenjeForma(vlasnikForme);
         unosenjeForma.setLocation(instanca.getLocation());
         unosenjeForma.setVisible(true);
         instanca.dispose();
@@ -255,15 +276,15 @@ public class MenadzerForma extends javax.swing.JFrame {
 
     private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaMouseClicked
 
-        if(selektovanRed == Tabela.getSelectedRow()){
-        
-            InformacijeZaposlenog informacijeZaposlenog = new InformacijeZaposlenog(UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0)));
+        if (selektovanRed == Tabela.getSelectedRow()) {
+
+            InformacijeZaposlenog informacijeZaposlenog = new InformacijeZaposlenog(UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0)), vlasnikForme);
             informacijeZaposlenog.setLocation(instanca.getLocation());
             informacijeZaposlenog.setVisible(true);
             instanca.dispose();
-        
+
         }
-        
+
         selektovanRed = Tabela.getSelectedRow();
         selektovanZaposlen = UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0));
 
@@ -337,6 +358,27 @@ public class MenadzerForma extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DajOtkazButtonMouseClicked
 
+    private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
+
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+
+    }//GEN-LAST:event_BackLabelaMouseEntered
+
+    private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
+
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png")));
+
+    }//GEN-LAST:event_BackLabelaMouseExited
+
+    private void BackLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseClicked
+
+        LoginForma loginForma = new LoginForma();
+        loginForma.setLocation(instanca.getLocation());
+        loginForma.setVisible(true);
+        instanca.dispose();
+
+    }//GEN-LAST:event_BackLabelaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -373,6 +415,7 @@ public class MenadzerForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackLabela;
     private javax.swing.JButton DajOtkazButton;
     private javax.swing.JButton DodajButton;
     private javax.swing.JLabel Labela1;
