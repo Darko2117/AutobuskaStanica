@@ -140,7 +140,6 @@ public class MenadzerForma extends javax.swing.JFrame {
 
         Tabela.setBackground(new java.awt.Color(114, 137, 218));
         Tabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        Tabela.setForeground(new java.awt.Color(0, 0, 0));
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
