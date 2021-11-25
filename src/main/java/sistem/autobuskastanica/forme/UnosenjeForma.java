@@ -35,7 +35,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         pocetneAnimacije();
 
         //U slucaju da je ovo unosenje prvog zaposlenog, postavlja se da to moze biti samo menadzer
-        if (UcitaniPodaci.getKorisnici().size() == 0) {
+        if (UcitaniPodaci.getKorisnici().isEmpty()) {
             StatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"MENADZER"}));
         }
 
@@ -270,8 +270,12 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
     private void DodajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajButtonActionPerformed
 
+        if(!DodajButton.isEnabled()) return;
+        
         FajlMenadzer.napraviPocetneFajlove();
         UcitaniPodaci.ucitajKorisnike(); //TODO: OBRISI
+        UcitaniPodaci.ucitajZaposlene();
+        UcitaniPodaci.ucitajStatuse();
 
         //Kopiranje svih vrednosti sa forme u promenljive
         int IDZaposlenog = UcitaniPodaci.getPrviSlobodanIDZaposlenog();
@@ -413,6 +417,9 @@ public class UnosenjeForma extends javax.swing.JFrame {
         LabelAnimacija.pokreni(UspesnoUnosenjeLabela, uspesnoUnosenjeText, UspesnoUnosenjeLabelaBrzinaAnimacije2, 1, UspesnoUnosenjeLabelaZakasnjenjeAnimacije2);
 
         //Prelaz na Login formu u slucaju da je ovo bilo unosenje prvog korisnika
+        DodajButton.setEnabled(false);
+        OcistiButton.setEnabled(false);
+        
         if (UcitaniPodaci.getKorisnici().size() == 1) {
 
             Timer timer = new Timer();
@@ -435,6 +442,8 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
     private void OcistiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OcistiButtonActionPerformed
 
+        if(!OcistiButton.isEnabled()) return;
+        
         ImeTextField.setText("");
         PrezimeTextField.setText("");
         KorisnickoImeTextField.setText("");

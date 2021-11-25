@@ -134,7 +134,7 @@ public class PrvaForma extends javax.swing.JFrame {
                 }
 
             };
-            timer.schedule(task1, labela1CeloTrajanjeAnimacije2 + 1000);
+            timer.schedule(task1, labela1CeloTrajanjeAnimacije2 + 250);
 
         }
         //----------------------------------------------------------------------------------------------------

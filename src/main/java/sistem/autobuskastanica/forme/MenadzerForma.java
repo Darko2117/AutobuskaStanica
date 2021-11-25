@@ -4,14 +4,17 @@
  */
 package sistem.autobuskastanica.forme;
 
-import java.util.LinkedList;
-import java.util.TimerTask;
 import java.util.Vector;
-import javax.swing.JScrollPane;
-import javax.swing.JViewport;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
+import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.Metode;
+import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
 
@@ -24,6 +27,7 @@ public class MenadzerForma extends javax.swing.JFrame {
     /**
      * Creates new form MenadzerForma
      */
+    Zaposlen selektovanZaposlen;
     private MenadzerForma instanca = this;
     Zaposlen vlasnikForme;
 
@@ -32,6 +36,9 @@ public class MenadzerForma extends javax.swing.JFrame {
         initComponents();
 
         ucitajTabelu();
+
+        UnaprediButton.setEnabled(false);
+        DajOtkazButton.setEnabled(false);
 
     }
 
@@ -44,14 +51,19 @@ public class MenadzerForma extends javax.swing.JFrame {
 
         ucitajTabelu();
 
+        UnaprediButton.setEnabled(false);
+        DajOtkazButton.setEnabled(false);
+
     }
 
     private void ucitajTabelu() {
 
+        UcitaniPodaci.ucitajKorisnike();
         UcitaniPodaci.ucitajZaposlene();
         UcitaniPodaci.ucitajStatuse();
 
-        TableModel tableModel = jTable1.getModel();
+        DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+        defaultTableModel.setRowCount(0);
 
         for (Zaposlen zaposlen : UcitaniPodaci.getZaposleni()) {
 
@@ -63,11 +75,26 @@ public class MenadzerForma extends javax.swing.JFrame {
             redPodaci.add(zaposlen.getDatumPrestankaRadnogOdnosa());
             redPodaci.add(Metode.statusStringIzInta(zaposlen.getStatus()));
 
-            ((DefaultTableModel) tableModel).addRow(redPodaci);
-                        
+            defaultTableModel.addRow(redPodaci);
+
         }
 
-        jTable1.setModel(tableModel);
+        //Centriranje teksta u celijama
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jTable1.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+        jTable1.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        jTable1.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+        jTable1.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        jTable1.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+
+        //Centriranje teksta u headeru tabele
+        TableCellRenderer rendererFromHeader = jTable1.getTableHeader().getDefaultRenderer();
+        JLabel headerLabel = (JLabel) rendererFromHeader;
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        jTable1.setModel(defaultTableModel);
 
     }
 
@@ -98,6 +125,11 @@ public class MenadzerForma extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         Labela1.setFont(new java.awt.Font("Tahoma", 1, 50)); // NOI18N
         Labela1.setForeground(new java.awt.Color(114, 137, 218));
@@ -127,17 +159,32 @@ public class MenadzerForma extends javax.swing.JFrame {
         jTable1.setMinimumSize(new java.awt.Dimension(800, 300));
         jTable1.setRowHeight(40);
         jTable1.setShowGrid(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         UnaprediButton.setBackground(new java.awt.Color(44, 44, 44));
         UnaprediButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         UnaprediButton.setForeground(new java.awt.Color(153, 255, 153));
         UnaprediButton.setText("UNAPREDI");
+        UnaprediButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UnaprediButtonMouseClicked(evt);
+            }
+        });
 
         DajOtkazButton.setBackground(new java.awt.Color(44, 44, 44));
         DajOtkazButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         DajOtkazButton.setForeground(new java.awt.Color(255, 51, 51));
         DajOtkazButton.setText("DAJ OTKAZ");
+        DajOtkazButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DajOtkazButtonMouseClicked(evt);
+            }
+        });
 
         DodajButton.setBackground(new java.awt.Color(44, 44, 44));
         DodajButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
@@ -204,6 +251,76 @@ public class MenadzerForma extends javax.swing.JFrame {
         instanca.dispose();
 
     }//GEN-LAST:event_DodajButtonMouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+        selektovanZaposlen = UcitaniPodaci.getZaposlenIzIDZaposlenog((int) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+
+        UnaprediButton.setEnabled(selektovanZaposlen.getStatus() == 0);
+        DajOtkazButton.setEnabled(selektovanZaposlen.getStatus() != 2);
+
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+
+        UnaprediButton.setEnabled(false);
+        DajOtkazButton.setEnabled(false);
+        jTable1.clearSelection();
+
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void UnaprediButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UnaprediButtonMouseClicked
+
+        if (!UnaprediButton.isEnabled()) {
+            return;
+        }
+
+        if (JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da unapredite ovog zaposlenog?\n" + selektovanZaposlen.getIme() + " " + selektovanZaposlen.getPrezime(), "Unapredjenje", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
+            selektovanZaposlen.setStatus(1);
+            FajlMenadzer.updateZaposlenog(selektovanZaposlen);
+            UcitaniPodaci.ucitajZaposlene();
+
+            StatusZaposlenog statusZaposlenog = new StatusZaposlenog(selektovanZaposlen.getID(), Metode.getDatumStringDDMMGGGG(), Metode.getVremeString(), 1);
+            FajlMenadzer.pisiFajl(StatusZaposlenog.imeFajla, statusZaposlenog.uString());
+            UcitaniPodaci.ucitajStatuseZaposlenih();
+
+            ucitajTabelu();
+
+            UnaprediButton.setEnabled(false);
+            DajOtkazButton.setEnabled(false);
+            jTable1.clearSelection();
+
+        }
+
+    }//GEN-LAST:event_UnaprediButtonMouseClicked
+
+    private void DajOtkazButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DajOtkazButtonMouseClicked
+
+        if (!DajOtkazButton.isEnabled()) {
+            return;
+        }
+
+        if (JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da date otkaz ovom zaposlenom?\n" + selektovanZaposlen.getIme() + " " + selektovanZaposlen.getPrezime(), "Otkaz", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
+            selektovanZaposlen.setDatumPrestankaRadnogOdnosa(Metode.getDatumStringDDMMGGGG());
+            selektovanZaposlen.setStatus(2);
+            FajlMenadzer.updateZaposlenog(selektovanZaposlen);
+            UcitaniPodaci.ucitajZaposlene();
+
+            StatusZaposlenog statusZaposlenog = new StatusZaposlenog(selektovanZaposlen.getID(), Metode.getDatumStringDDMMGGGG(), Metode.getVremeString(), 2);
+            FajlMenadzer.pisiFajl(StatusZaposlenog.imeFajla, statusZaposlenog.uString());
+            UcitaniPodaci.ucitajStatuseZaposlenih();
+
+            ucitajTabelu();
+
+            UnaprediButton.setEnabled(false);
+            DajOtkazButton.setEnabled(false);
+            jTable1.clearSelection();
+
+        }
+
+    }//GEN-LAST:event_DajOtkazButtonMouseClicked
 
     /**
      * @param args the command line arguments

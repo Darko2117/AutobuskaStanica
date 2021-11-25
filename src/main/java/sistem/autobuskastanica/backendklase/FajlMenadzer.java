@@ -1,6 +1,9 @@
 package sistem.autobuskastanica.backendklase;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 public class FajlMenadzer {
@@ -36,5 +39,30 @@ public class FajlMenadzer {
             throwable.printStackTrace();
         }
     }
+    
+    public static void updateZaposlenog(Zaposlen zaposlen) {
+        try {
 
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("podaci" + File.separator + Zaposlen.imeFajla));
+            StringBuffer inputBuffer = new StringBuffer();
+            String linija;
+            while ((linija = bufferedReader.readLine()) != null) {
+
+                if (linija.contains("ID:" + zaposlen.getID())) {
+                    linija = zaposlen.uString();
+                }
+                inputBuffer.append(linija).append("\n");
+
+            }
+            bufferedReader.close();
+
+            FileOutputStream fileOut = new FileOutputStream("podaci" + File.separator + Zaposlen.imeFajla);
+            fileOut.write(inputBuffer.toString().getBytes());
+            fileOut.close();
+
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+    }
+    
 }

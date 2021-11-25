@@ -64,6 +64,9 @@
           <Dimension value="[1000, 650]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel1MouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -155,6 +158,9 @@
                 <Property name="rowHeight" type="int" value="40"/>
                 <Property name="showGrid" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -171,6 +177,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="UNAPREDI"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="UnaprediButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DajOtkazButton">
           <Properties>
@@ -185,6 +194,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="DAJ OTKAZ"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DajOtkazButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DodajButton">
           <Properties>
