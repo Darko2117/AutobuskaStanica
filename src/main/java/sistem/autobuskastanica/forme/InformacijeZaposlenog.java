@@ -103,7 +103,6 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
-        setPreferredSize(new java.awt.Dimension(1000, 650));
         setSize(new java.awt.Dimension(1000, 650));
 
         jPanel1.setBackground(new java.awt.Color(44, 44, 44));
@@ -118,7 +117,6 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
         Tabela.setBackground(new java.awt.Color(114, 137, 218));
         Tabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        Tabela.setForeground(new java.awt.Color(0, 0, 0));
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
