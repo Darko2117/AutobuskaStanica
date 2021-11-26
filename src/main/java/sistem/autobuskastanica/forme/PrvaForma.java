@@ -96,7 +96,7 @@ public class PrvaForma extends javax.swing.JFrame {
             TimerTask task1 = new TimerTask() {
                 public void run() {
 
-                    ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica2.png")));
+                    logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo2.png")));
 
                     labela1.setFont(new java.awt.Font("Tahoma", 0, 50));
                     labela1.setForeground(new java.awt.Color(255, 51, 51));
@@ -149,7 +149,7 @@ public class PrvaForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ikonica = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         labela1 = new javax.swing.JLabel();
         labela2 = new javax.swing.JLabel();
 
@@ -165,7 +165,7 @@ public class PrvaForma extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
-        ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo1.png"))); // NOI18N
 
         labela1.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
         labela1.setForeground(new java.awt.Color(114, 137, 218));
@@ -185,7 +185,7 @@ public class PrvaForma extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(425, 425, 425)
-                        .addComponent(ikonica))
+                        .addComponent(logo))
                     .addComponent(labela1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labela2, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(270, 270, 270))
@@ -194,7 +194,7 @@ public class PrvaForma extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(ikonica)
+                .addComponent(logo)
                 .addGap(18, 18, 18)
                 .addComponent(labela1)
                 .addGap(18, 18, 18)
@@ -256,9 +256,9 @@ public class PrvaForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ikonica;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labela1;
     private javax.swing.JLabel labela2;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }

@@ -47,7 +47,7 @@ public class LoginForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Ikonica = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         KorisnickoImeLabela = new javax.swing.JLabel();
         KorisnickoImeLabela1 = new javax.swing.JLabel();
         KorisnickoImeTextField = new javax.swing.JTextField();
@@ -70,11 +70,7 @@ public class LoginForma extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
-        Ikonica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonica1.png"))); // NOI18N
-        Ikonica.setText("jLabel1");
-        Ikonica.setMaximumSize(new java.awt.Dimension(150, 150));
-        Ikonica.setMinimumSize(new java.awt.Dimension(150, 150));
-        Ikonica.setPreferredSize(new java.awt.Dimension(150, 150));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo1.png"))); // NOI18N
 
         KorisnickoImeLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         KorisnickoImeLabela.setForeground(new java.awt.Color(114, 137, 218));
@@ -129,7 +125,7 @@ public class LoginForma extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LozinkaLabela)
                             .addComponent(KorisnickoImeLabela, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(LozinkaPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
@@ -147,7 +143,7 @@ public class LoginForma extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(Ikonica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logo)
                 .addGap(18, 18, 18)
                 .addComponent(KorisnickoImeLabela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -330,7 +326,6 @@ public class LoginForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Ikonica;
     private javax.swing.JLabel KorisnickoImeLabela;
     private javax.swing.JLabel KorisnickoImeLabela1;
     private javax.swing.JTextField KorisnickoImeTextField;
@@ -339,5 +334,6 @@ public class LoginForma extends javax.swing.JFrame {
     private javax.swing.JLabel LozinkaLabela1;
     private javax.swing.JPasswordField LozinkaPasswordField;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }

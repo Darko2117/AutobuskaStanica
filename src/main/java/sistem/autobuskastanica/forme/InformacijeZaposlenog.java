@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
@@ -26,26 +27,41 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
     private InformacijeZaposlenog instanca;
 
     public InformacijeZaposlenog() {
-        
+
         instanca = this;
 
         initComponents();
 
         ucitajTabelu();
+
+        pocetneAnimacije();
 
     }
 
     public InformacijeZaposlenog(Zaposlen oKomeJeForma, Zaposlen vlasnikForme) {
-        
+
         instanca = this;
 
         initComponents();
-        
+
         this.oKomeJeForma = oKomeJeForma;
         this.vlasnikForme = vlasnikForme;
-        Labela1.setText("ID: " + oKomeJeForma.getID() + " " + oKomeJeForma.getIme() + " " + oKomeJeForma.getPrezime());
 
         ucitajTabelu();
+
+        pocetneAnimacije();
+
+    }
+
+    private void pocetneAnimacije() {
+
+        if (vlasnikForme == null) {
+            return;
+        }
+
+        String Labela1Text = "ID: " + oKomeJeForma.getID() + " " + oKomeJeForma.getIme() + " " + oKomeJeForma.getPrezime();
+        Labela1.setText("");
+        LabelAnimacija.pokreni(Labela1, Labela1Text, 25, 0, 250);
 
     }
 
@@ -62,7 +78,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
         DefaultTableModel defaultTableModel = (DefaultTableModel) Tabela.getModel();
         defaultTableModel.setRowCount(0);
-        
+
         for (StatusZaposlenog statusZaposlenog : UcitaniPodaci.getStatusiZaposlenog(oKomeJeForma)) {
 
             Vector<Object> redPodaci = new Vector<>();
@@ -142,7 +158,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         Tabela.setShowGrid(true);
         jScrollPane1.setViewportView(Tabela);
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
         BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BackLabelaMouseClicked(evt);
@@ -198,14 +214,14 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
     private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
-        
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
+
     }//GEN-LAST:event_BackLabelaMouseEntered
 
     private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png")));
-        
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+
     }//GEN-LAST:event_BackLabelaMouseExited
 
     private void BackLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseClicked
@@ -214,7 +230,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         menadzerForma.setLocation(instanca.getLocation());
         menadzerForma.setVisible(true);
         instanca.dispose();
-        
+
     }//GEN-LAST:event_BackLabelaMouseClicked
 
     /**

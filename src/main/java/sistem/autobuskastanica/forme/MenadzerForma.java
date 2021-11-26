@@ -10,9 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
+import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.Metode;
 import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
@@ -40,6 +39,8 @@ public class MenadzerForma extends javax.swing.JFrame {
 
         UnaprediButton.setEnabled(false);
         DajOtkazButton.setEnabled(false);
+        
+        pocetneAnimacije();
 
     }
 
@@ -48,13 +49,24 @@ public class MenadzerForma extends javax.swing.JFrame {
         initComponents();
 
         vlasnikForme = zaposlen;
-        Labela1.setText(Labela1.getText().concat(": " + vlasnikForme.getIme() + " " + vlasnikForme.getPrezime()));
 
         ucitajTabelu();
 
         UnaprediButton.setEnabled(false);
         DajOtkazButton.setEnabled(false);
+        
+        pocetneAnimacije();
 
+    }
+    
+    private void pocetneAnimacije(){
+        
+        if(vlasnikForme == null) return;
+    
+        String Labela1Text = "MENADŽER: " + vlasnikForme.getIme() + " " + vlasnikForme.getPrezime();
+        Labela1.setText("");
+        LabelAnimacija.pokreni(Labela1, Labela1Text, 25, 0, 250);
+        
     }
 
     private void ucitajTabelu() {
@@ -197,7 +209,7 @@ public class MenadzerForma extends javax.swing.JFrame {
             }
         });
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
         BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BackLabelaMouseClicked(evt);
@@ -359,13 +371,13 @@ public class MenadzerForma extends javax.swing.JFrame {
 
     private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
 
     }//GEN-LAST:event_BackLabelaMouseEntered
 
     private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png")));
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
 
     }//GEN-LAST:event_BackLabelaMouseExited
 

@@ -184,7 +184,7 @@ public class UnosenjeForma extends javax.swing.JFrame {
         UspesnoUnosenjeLabela.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         UspesnoUnosenjeLabela.setForeground(new java.awt.Color(0, 153, 51));
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
         BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BackLabelaMouseClicked(evt);
@@ -480,13 +480,13 @@ public class UnosenjeForma extends javax.swing.JFrame {
 
     private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
 
     }//GEN-LAST:event_BackLabelaMouseEntered
 
     private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png")));
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
 
     }//GEN-LAST:event_BackLabelaMouseExited
 
