@@ -64,7 +64,7 @@ public class LoginForma extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 650));
 
-        jPanel1.setBackground(new java.awt.Color(44, 47, 51));
+        jPanel1.setBackground(new java.awt.Color(44, 44, 44));
         jPanel1.setForeground(new java.awt.Color(114, 137, 218));
         jPanel1.setMaximumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
