@@ -289,7 +289,7 @@ public class MenadzerForma extends javax.swing.JFrame {
 
         if (selektovanRed == Tabela.getSelectedRow()) {
 
-            InformacijeZaposlenog informacijeZaposlenog = new InformacijeZaposlenog(UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0)), vlasnikForme);
+            InformacijeZaposlenogForma informacijeZaposlenog = new InformacijeZaposlenogForma(UcitaniPodaci.getZaposlenIzIDZaposlenog((int) Tabela.getValueAt(selektovanRed, 0)), vlasnikForme);
             informacijeZaposlenog.setLocation(instanca.getLocation());
             informacijeZaposlenog.setVisible(true);
             instanca.dispose();

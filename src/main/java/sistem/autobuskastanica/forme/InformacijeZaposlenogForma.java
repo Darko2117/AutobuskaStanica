@@ -18,15 +18,15 @@ import sistem.autobuskastanica.backendklase.Zaposlen;
  *
  * @author danij
  */
-public class InformacijeZaposlenog extends javax.swing.JFrame {
+public class InformacijeZaposlenogForma extends javax.swing.JFrame {
 
     /**
      * Creates new form InformacijeZaposlenog
      */
     private Zaposlen oKomeJeForma, vlasnikForme;
-    private InformacijeZaposlenog instanca;
+    private InformacijeZaposlenogForma instanca;
 
-    public InformacijeZaposlenog() {
+    public InformacijeZaposlenogForma() {
 
         instanca = this;
 
@@ -38,7 +38,7 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
 
     }
 
-    public InformacijeZaposlenog(Zaposlen oKomeJeForma, Zaposlen vlasnikForme) {
+    public InformacijeZaposlenogForma(Zaposlen oKomeJeForma, Zaposlen vlasnikForme) {
 
         instanca = this;
 
@@ -120,7 +120,6 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
         BackLabela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setSize(new java.awt.Dimension(1000, 650));
 
@@ -250,20 +249,21 @@ public class InformacijeZaposlenog extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InformacijeZaposlenog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacijeZaposlenogForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InformacijeZaposlenog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacijeZaposlenogForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InformacijeZaposlenog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacijeZaposlenogForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InformacijeZaposlenog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacijeZaposlenogForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformacijeZaposlenog().setVisible(true);
+                new InformacijeZaposlenogForma().setVisible(true);
             }
         });
     }
