@@ -5,6 +5,7 @@
 package sistem.autobuskastanica.backendklase;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -55,7 +56,7 @@ public class Metode {
             vreme.append("0");
         }
         vreme.append(sat);
-        
+
         vreme.append(":");
 
         if (minut < 10) {
@@ -100,6 +101,39 @@ public class Metode {
         }
 
         return true;
+
+    }
+
+    public static String stringIzStringListe(List<String> stringLista) {
+
+        String string = "";
+
+        for (String string1 : stringLista) {
+            string = string.concat(string1).concat(", ");
+        }
+        if (!string.isEmpty()) {
+            string = string.substring(0, string.length() - 2);
+        }
+
+        return string;
+
+    }
+
+    public static List<String> stringListaIzStringa(String string) {
+
+        List<String> stringLista = new ArrayList<>();
+
+        while (true) {
+            if (string.contains(", ")) {
+                stringLista.add(string.substring(0, string.indexOf(", ")));
+                string = string.substring(string.indexOf(", ") + 2);
+            } else {
+                stringLista.add(string);
+                break;
+            }
+        }
+
+        return stringLista;
 
     }
 
