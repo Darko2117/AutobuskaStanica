@@ -4,6 +4,8 @@
  */
 package sistem.autobuskastanica.forme;
 
+import sistem.autobuskastanica.backendklase.Zaposlen;
+
 /**
  *
  * @author danij
@@ -13,8 +15,24 @@ public class RadnikForma extends javax.swing.JFrame {
     /**
      * Creates new form RadnikForma
      */
+    private RadnikForma instanca;
+    private Zaposlen vlasnikForme;
+    
     public RadnikForma() {
+        
+        instanca = this;
+        
         initComponents();
+        
+    }
+    
+    public RadnikForma(Zaposlen zaposlen) {
+        
+        instanca = this;
+        vlasnikForme = zaposlen;
+        
+        initComponents();
+        
     }
 
     /**
@@ -27,51 +45,94 @@ public class RadnikForma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         Labela1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        BackLabela = new javax.swing.JLabel();
+        IzdavanjeKarataButton = new javax.swing.JButton();
+        StatusLinijaButton = new javax.swing.JButton();
+        DodavanjeLinijaButton = new javax.swing.JButton();
+        OstavljanjeStvariButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setSize(new java.awt.Dimension(1000, 650));
 
-        jPanel1.setBackground(new java.awt.Color(44, 47, 51));
+        jPanel1.setBackground(new java.awt.Color(44, 44, 44));
         jPanel1.setMaximumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 650));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
-        jButton1.setBackground(new java.awt.Color(114, 137, 218));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(44, 47, 51));
-        jButton1.setText("STATISTIKA RASPOLOŽIVIH LINIJA");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         Labela1.setFont(new java.awt.Font("Tahoma", 1, 50)); // NOI18N
         Labela1.setForeground(new java.awt.Color(114, 137, 218));
         Labela1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Labela1.setText("Radnik");
+        Labela1.setText("RADNIK");
 
-        jButton2.setBackground(new java.awt.Color(114, 137, 218));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(44, 47, 51));
-        jButton2.setText("OSTAVLJANJE STVARI");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
+        BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BackLabelaMouseExited(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(114, 137, 218));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(44, 47, 51));
-        jButton4.setText("UNOS KARATA");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        IzdavanjeKarataButton.setBackground(new java.awt.Color(114, 137, 218));
+        IzdavanjeKarataButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        IzdavanjeKarataButton.setForeground(new java.awt.Color(44, 47, 51));
+        IzdavanjeKarataButton.setText("IZDAVANJE KARATA");
+        IzdavanjeKarataButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        IzdavanjeKarataButton.setMaximumSize(new java.awt.Dimension(250, 30));
+        IzdavanjeKarataButton.setMinimumSize(new java.awt.Dimension(250, 30));
+        IzdavanjeKarataButton.setPreferredSize(new java.awt.Dimension(250, 30));
+        IzdavanjeKarataButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                IzdavanjeKarataButtonActionPerformed(evt);
+            }
+        });
+
+        StatusLinijaButton.setBackground(new java.awt.Color(114, 137, 218));
+        StatusLinijaButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        StatusLinijaButton.setForeground(new java.awt.Color(44, 47, 51));
+        StatusLinijaButton.setText("STATUS LINIJA");
+        StatusLinijaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        StatusLinijaButton.setMaximumSize(new java.awt.Dimension(250, 30));
+        StatusLinijaButton.setMinimumSize(new java.awt.Dimension(250, 30));
+        StatusLinijaButton.setPreferredSize(new java.awt.Dimension(250, 30));
+        StatusLinijaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StatusLinijaButtonActionPerformed(evt);
+            }
+        });
+
+        DodavanjeLinijaButton.setBackground(new java.awt.Color(114, 137, 218));
+        DodavanjeLinijaButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        DodavanjeLinijaButton.setForeground(new java.awt.Color(44, 47, 51));
+        DodavanjeLinijaButton.setText("DODAVANJE LINIJA");
+        DodavanjeLinijaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DodavanjeLinijaButton.setMaximumSize(new java.awt.Dimension(250, 30));
+        DodavanjeLinijaButton.setMinimumSize(new java.awt.Dimension(250, 30));
+        DodavanjeLinijaButton.setPreferredSize(new java.awt.Dimension(250, 30));
+        DodavanjeLinijaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodavanjeLinijaButtonActionPerformed(evt);
+            }
+        });
+
+        OstavljanjeStvariButton.setBackground(new java.awt.Color(114, 137, 218));
+        OstavljanjeStvariButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        OstavljanjeStvariButton.setForeground(new java.awt.Color(44, 47, 51));
+        OstavljanjeStvariButton.setText("OSTAVLJANJE STVARI");
+        OstavljanjeStvariButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        OstavljanjeStvariButton.setMaximumSize(new java.awt.Dimension(250, 30));
+        OstavljanjeStvariButton.setMinimumSize(new java.awt.Dimension(250, 30));
+        OstavljanjeStvariButton.setPreferredSize(new java.awt.Dimension(250, 30));
+        OstavljanjeStvariButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OstavljanjeStvariButtonActionPerformed(evt);
             }
         });
 
@@ -79,58 +140,98 @@ public class RadnikForma extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Labela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Labela1, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(348, 348, 348))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BackLabela))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(DodavanjeLinijaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(OstavljanjeStvariButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(IzdavanjeKarataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(StatusLinijaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
+                .addContainerGap()
+                .addComponent(BackLabela)
+                .addGap(18, 18, 18)
                 .addComponent(Labela1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                    .addComponent(IzdavanjeKarataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StatusLinijaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DodavanjeLinijaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OstavljanjeStvariButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void IzdavanjeKarataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IzdavanjeKarataButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_IzdavanjeKarataButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void StatusLinijaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusLinijaButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_StatusLinijaButtonActionPerformed
+
+    private void DodavanjeLinijaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodavanjeLinijaButtonActionPerformed
+        
+        DodavanjeLinijaForma dodavanjeLinijaForma = new DodavanjeLinijaForma(vlasnikForme);
+        dodavanjeLinijaForma.setLocation(instanca.getLocation());
+        dodavanjeLinijaForma.setVisible(true);
+        instanca.dispose();
+        
+    }//GEN-LAST:event_DodavanjeLinijaButtonActionPerformed
+
+    private void OstavljanjeStvariButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OstavljanjeStvariButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OstavljanjeStvariButtonActionPerformed
+
+    private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
+        
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
+        
+    }//GEN-LAST:event_BackLabelaMouseEntered
+
+    private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
+        
+        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+        
+    }//GEN-LAST:event_BackLabelaMouseExited
+
+    private void BackLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseClicked
+        
+        LoginForma loginForma = new LoginForma();
+        loginForma.setLocation(instanca.getLocation());
+        loginForma.setVisible(true);
+        instanca.dispose();
+        
+    }//GEN-LAST:event_BackLabelaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -168,10 +269,12 @@ public class RadnikForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackLabela;
+    private javax.swing.JButton DodavanjeLinijaButton;
+    private javax.swing.JButton IzdavanjeKarataButton;
     private javax.swing.JLabel Labela1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton OstavljanjeStvariButton;
+    private javax.swing.JButton StatusLinijaButton;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@
  */
 package sistem.autobuskastanica.backendklase;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ public class AutobuskaLinija {
     private int cena;
     
     public static final String imeFajla = "linije.txt";
+    public static final List<String> dozvoljeniGradovi = Arrays.asList("Novi Sad", "Subotica", "Beograd", "Sremska Mitrovica", "Nis");
 
     public AutobuskaLinija(String mestoPolazka, String mestoDolazka, List<String> datumi, List<String> vremena, int brojMesta, int cena) {
         this.mestoPolazka = mestoPolazka;

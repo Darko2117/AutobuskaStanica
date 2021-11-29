@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
+import sistem.autobuskastanica.backendklase.Metode;
 import sistem.autobuskastanica.backendklase.StatusZaposlenog;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
@@ -84,7 +85,7 @@ public class InformacijeZaposlenogForma extends javax.swing.JFrame {
             Vector<Object> redPodaci = new Vector<>();
             redPodaci.add(statusZaposlenog.getDatum());
             redPodaci.add(statusZaposlenog.getVreme());
-            redPodaci.add(statusZaposlenog.getIDStatusa());
+            redPodaci.add(Metode.statusStringIzInta(statusZaposlenog.getIDStatusa()));
 
             defaultTableModel.addRow(redPodaci);
 

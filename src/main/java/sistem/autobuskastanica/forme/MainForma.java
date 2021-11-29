@@ -4,10 +4,14 @@
  */
 package sistem.autobuskastanica.forme;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import sistem.autobuskastanica.backendklase.AutobuskaLinija;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
+import sistem.autobuskastanica.backendklase.Metode;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 
 /**
@@ -156,7 +160,6 @@ public class MainForma extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AUTOBUSKA STANICA");
         setMinimumSize(new java.awt.Dimension(1000, 650));
-        setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 650));
 

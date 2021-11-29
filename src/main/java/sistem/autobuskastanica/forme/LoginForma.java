@@ -285,6 +285,13 @@ public class LoginForma extends javax.swing.JFrame {
             menadzerForma.setVisible(true);
             instanca.dispose();
 
+        } else if (zaposlen.getStatus() == 0) {
+
+            RadnikForma radnikForma = new RadnikForma(zaposlen);
+            radnikForma.setLocation(instanca.getLocation());
+            radnikForma.setVisible(true);
+            instanca.dispose();
+
         }
 
     }//GEN-LAST:event_LogInButtonMouseClicked
