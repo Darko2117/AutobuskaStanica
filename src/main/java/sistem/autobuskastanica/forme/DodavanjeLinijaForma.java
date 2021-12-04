@@ -4,7 +4,6 @@ import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
 import java.time.LocalTime;
-import javax.swing.DefaultComboBoxModel;
 import sistem.autobuskastanica.backendklase.AutobuskaLinija;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
@@ -44,6 +43,11 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
     private void ucitavanjeComboBoxeva() {
 
+        /*        
+        Ovako bih uradio ovaj deo ali zbog nekog razloga DefaultComboBoxModel.addAll() izbacuje gresku kada mu se da lista
+        Program svakako radi ali outputuje warning prilikom prvog builda
+        Da bi bilo sto manje upozorenja tokom buildovanja, uradio sam ovaj duzi i gori nacin
+        
         DefaultComboBoxModel defaultComboBoxModel;
 
         defaultComboBoxModel = new DefaultComboBoxModel();
@@ -53,6 +57,14 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         defaultComboBoxModel = new DefaultComboBoxModel();
         defaultComboBoxModel.addAll(AutobuskaLinija.dozvoljeniGradovi);
         gradDolazkaComboBox.setModel(defaultComboBoxModel);
+         */
+        String[] nizDozvoljenihGradova = new String[AutobuskaLinija.dozvoljeniGradovi.size()];
+        for (int i = 0; i < AutobuskaLinija.dozvoljeniGradovi.size(); i++) {
+            nizDozvoljenihGradova[i] = AutobuskaLinija.dozvoljeniGradovi.get(i);
+        }
+
+        gradPolazkaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(nizDozvoljenihGradova));
+        gradDolazkaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(nizDozvoljenihGradova));
 
     }
 

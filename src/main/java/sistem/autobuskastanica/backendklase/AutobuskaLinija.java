@@ -60,8 +60,8 @@ public class AutobuskaLinija {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("MestoPolazka:").append(mestoPolazka).append("\t");
         stringBuilder.append("MestoDolazka:").append(mestoDolazka).append("\t");
-        stringBuilder.append("Datumi:").append(datum).append("\t");
-        stringBuilder.append("Vremena:").append(vreme).append("\t");
+        stringBuilder.append("Datum:").append(datum).append("\t");
+        stringBuilder.append("Vreme:").append(vreme).append("\t");
         stringBuilder.append("BrojMesta:").append(brojMesta).append("\t");
         stringBuilder.append("Cena:").append(cena);
         return stringBuilder.toString();
