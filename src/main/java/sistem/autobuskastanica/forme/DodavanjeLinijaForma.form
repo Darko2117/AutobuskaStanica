@@ -76,46 +76,43 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="vremenaLabela1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="vremenaLabela2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="gradDolazkaLabela1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="gradDolazkaComboBox" alignment="0" pref="300" max="32767" attributes="0"/>
-                              <Component id="gradPolazkaLabela1" max="32767" attributes="0"/>
-                              <Component id="gradPolazkaComboBox" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="datumiLabela1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="datumiLabela2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="datumiScrollPane" alignment="0" max="32767" attributes="0"/>
-                              <Component id="vremenaScrollPane" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="sedistaLabela1" max="32767" attributes="0"/>
-                                      <Component id="sedistaTextField" max="32767" attributes="0"/>
+                                      <Component id="datumIVremeDateTImePicker" max="32767" attributes="0"/>
+                                      <Component id="gradDolazkaLabela1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gradDolazkaComboBox" alignment="0" pref="300" max="32767" attributes="0"/>
+                                      <Component id="gradPolazkaLabela1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gradPolazkaComboBox" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="datumIVremeLabela1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="dodajButton" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="obrisiButton" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="cenaLabela1" max="32767" attributes="0"/>
-                                      <Component id="cenaTextField" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="gradPolazkaLabela2" pref="300" max="32767" attributes="0"/>
+                                      <Component id="gradDolazkaLabela2" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="dodajButton" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="unosenjeUspeloLabela" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="gradPolazkaLabela2" pref="300" max="32767" attributes="0"/>
-                              <Component id="gradDolazkaLabela2" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="datumiLabela3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="vremenaLabela3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="sedistaTextField" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="sedistaLabela1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="cenaLabela1" max="32767" attributes="0"/>
+                                              <Component id="cenaTextField" min="-2" pref="37" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="sedistaICenaLabela1" min="-2" pref="300" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="unosenjeUspeloLabela" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -146,25 +143,9 @@
                       <Component id="gradDolazkaLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="datumiLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="datumiLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="datumIVremeLabela1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="datumiScrollPane" min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="datumiLabela3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="vremenaLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="vremenaLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="vremenaScrollPane" min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="vremenaLabela3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="datumIVremeDateTImePicker" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="sedistaLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -174,11 +155,16 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="sedistaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cenaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dodajButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="sedistaICenaLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dodajButton" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="obrisiButton" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="unosenjeUspeloLabela" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="111" max="32767" attributes="0"/>
+                  <EmptySpace pref="199" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -198,22 +184,22 @@
         </Component>
         <Component class="javax.swing.JLabel" name="gradPolazkaLabela1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Grad Polazka"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Grad Polazka"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="gradPolazkaComboBox">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="15" style="0"/>
-            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="15" style="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -232,22 +218,22 @@
         </Component>
         <Component class="javax.swing.JLabel" name="gradDolazkaLabela1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Grad Dolazka"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Grad Dolazka"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="gradDolazkaComboBox">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="15" style="0"/>
-            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="15" style="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -264,142 +250,82 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="datumiLabela1">
+        <Component class="javax.swing.JLabel" name="datumIVremeLabela1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Datum i vreme"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Datumi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="datumiLabela2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="(DD.MM.GGGG jedan po liniji)"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="datumiScrollPane">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="datumiTextArea">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
-                </Property>
-                <Property name="rows" type="int" value="5"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JLabel" name="datumiLabela3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="15" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="vremenaLabela1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="15" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Vremena"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="vremenaLabela2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="(SS:MM jedno po liniji)"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="vremenaScrollPane">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="vremenaTextArea">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="15" style="0"/>
-                </Property>
-                <Property name="rows" type="int" value="5"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JLabel" name="vremenaLabela3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="15" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
+        <Component class="com.github.lgooddatepicker.components.DateTimePicker" name="datumIVremeDateTImePicker">
         </Component>
         <Component class="javax.swing.JLabel" name="sedistaLabela1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Sedista"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sedista"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="sedistaTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="cenaLabela1">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Cena"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cena"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cenaTextField">
         </Component>
+        <Component class="javax.swing.JLabel" name="sedistaICenaLabela1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="15" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JButton" name="dodajButton">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Dodaj"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Dodaj"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dodajButtonMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="obrisiButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Obrisi"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="89" red="72" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="20" style="1"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="obrisiButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="unosenjeUspeloLabela">
           <Properties>

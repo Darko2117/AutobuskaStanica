@@ -5,6 +5,7 @@
 package sistem.autobuskastanica.backendklase;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -21,9 +22,15 @@ public class Metode {
 
     public static String getDatumStringDDMMGGGG() {
 
-        int dan = LocalDate.now().getDayOfMonth();
-        int mesec = LocalDate.now().getMonthValue();
-        int godina = LocalDate.now().getYear();
+        return getDatumStringDDMMGGGGIzLocalDate(LocalDate.now());
+
+    }
+
+    public static String getDatumStringDDMMGGGGIzLocalDate(LocalDate localDate) {
+
+        int dan = localDate.getDayOfMonth();
+        int mesec = localDate.getMonthValue();
+        int godina = localDate.getYear();
 
         StringBuilder datum = new StringBuilder();
 
@@ -43,6 +50,29 @@ public class Metode {
 
         return datum.toString();
 
+    }
+    
+    public static String getVremeStringSSMMIzLocalTime(LocalTime localTime){
+    
+        int sat = localTime.getHour();
+        int minut = localTime.getMinute();
+        
+        StringBuilder vreme = new StringBuilder();
+
+        if (sat < 10) {
+            vreme.append("0");
+        }
+        vreme.append(sat);
+
+        vreme.append(":");
+
+        if (minut < 10) {
+            vreme.append("0");
+        }
+        vreme.append(minut);
+
+        return vreme.toString();
+    
     }
 
     public static String getVremeString() {

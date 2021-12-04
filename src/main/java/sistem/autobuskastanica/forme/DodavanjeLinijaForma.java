@@ -1,8 +1,15 @@
 package sistem.autobuskastanica.forme;
 
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.github.lgooddatepicker.components.TimePickerSettings;
+import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
+import java.time.LocalTime;
 import javax.swing.DefaultComboBoxModel;
 import sistem.autobuskastanica.backendklase.AutobuskaLinija;
+import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
+import sistem.autobuskastanica.backendklase.Metode;
+import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 import sistem.autobuskastanica.backendklase.Zaposlen;
 
 public class DodavanjeLinijaForma extends javax.swing.JFrame {
@@ -17,6 +24,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         initComponents();
 
         ucitavanjeComboBoxeva();
+        namestanjeDateTimePickera();
         pocetneAnimacije();
 
     }
@@ -29,7 +37,36 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         initComponents();
 
         ucitavanjeComboBoxeva();
+        namestanjeDateTimePickera();
         pocetneAnimacije();
+
+    }
+
+    private void ucitavanjeComboBoxeva() {
+
+        DefaultComboBoxModel defaultComboBoxModel;
+
+        defaultComboBoxModel = new DefaultComboBoxModel();
+        defaultComboBoxModel.addAll(AutobuskaLinija.dozvoljeniGradovi);
+        gradPolazkaComboBox.setModel(defaultComboBoxModel);
+
+        defaultComboBoxModel = new DefaultComboBoxModel();
+        defaultComboBoxModel.addAll(AutobuskaLinija.dozvoljeniGradovi);
+        gradDolazkaComboBox.setModel(defaultComboBoxModel);
+
+    }
+
+    private void namestanjeDateTimePickera() {
+
+        DatePickerSettings datePickerSettings = datumIVremeDateTImePicker.getDatePicker().getSettings();
+        datePickerSettings.setAllowEmptyDates(false);
+
+        TimePickerSettings timePickerSettings = datumIVremeDateTImePicker.getTimePicker().getSettings();
+        timePickerSettings.setAllowEmptyTimes(false);
+        timePickerSettings.use24HourClockFormat();
+        timePickerSettings.generatePotentialMenuTimes(TimeIncrement.FifteenMinutes, null, null);
+
+        datumIVremeDateTImePicker.getTimePicker().setTime(LocalTime.MIN);
 
     }
 
@@ -39,39 +76,19 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         int prvoZakasnjenje = 250;
         String gradPolazkaLabelaText = "Grad Polazka";
         String gradDolazkaLabelaText = "Grad Dolazka";
-        String datumiLabela1Text = "Datumi";
-        String datumiLabela2Text = "(DD.MM.GGGG jedan po liniji)";
-        String vremenaLabela1Text = "Vremena";
-        String vremenaLabela2Text = "(SS:MM jedno po liniji)";
+        String datumIVremeLabela1Text = "Datum i Vreme";
         String sedistaLabelaText = "Sedista";
         String cenaLabelaText = "Cena";
         gradPolazkaLabela1.setText("");
         gradDolazkaLabela1.setText("");
-        datumiLabela1.setText("");
-        datumiLabela2.setText("");
-        vremenaLabela1.setText("");
-        vremenaLabela2.setText("");
+        datumIVremeLabela1.setText("");
         sedistaLabela1.setText("");
         cenaLabela1.setText("");
         LabelAnimacija.pokreni(gradPolazkaLabela1, gradPolazkaLabelaText, brzinaAnimacija, 0, prvoZakasnjenje);
         LabelAnimacija.pokreni(gradDolazkaLabela1, gradDolazkaLabelaText, brzinaAnimacija, 0, prvoZakasnjenje);
-        LabelAnimacija.pokreni(datumiLabela1, datumiLabela1Text, brzinaAnimacija, 0, prvoZakasnjenje);
-        LabelAnimacija.pokreni(datumiLabela2, datumiLabela2Text, brzinaAnimacija, 0, prvoZakasnjenje + datumiLabela1Text.length() * brzinaAnimacija);
-        LabelAnimacija.pokreni(vremenaLabela1, vremenaLabela1Text, brzinaAnimacija, 0, prvoZakasnjenje);
-        LabelAnimacija.pokreni(vremenaLabela2, vremenaLabela2Text, brzinaAnimacija, 0, prvoZakasnjenje + vremenaLabela1Text.length() * brzinaAnimacija);
+        LabelAnimacija.pokreni(datumIVremeLabela1, datumIVremeLabela1Text, brzinaAnimacija, 0, prvoZakasnjenje);
         LabelAnimacija.pokreni(sedistaLabela1, sedistaLabelaText, brzinaAnimacija, 0, prvoZakasnjenje);
         LabelAnimacija.pokreni(cenaLabela1, cenaLabelaText, brzinaAnimacija, 0, prvoZakasnjenje);
-
-    }
-
-    private void ucitavanjeComboBoxeva() {
-
-        DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
-        defaultComboBoxModel1.addAll(AutobuskaLinija.dozvoljeniGradovi);
-        gradPolazkaComboBox.setModel(defaultComboBoxModel1);
-        DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();
-        defaultComboBoxModel2.addAll(AutobuskaLinija.dozvoljeniGradovi);
-        gradDolazkaComboBox.setModel(defaultComboBoxModel2);
 
     }
 
@@ -87,21 +104,15 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         gradDolazkaLabela1 = new javax.swing.JLabel();
         gradDolazkaComboBox = new javax.swing.JComboBox<>();
         gradDolazkaLabela2 = new javax.swing.JLabel();
-        datumiLabela1 = new javax.swing.JLabel();
-        datumiLabela2 = new javax.swing.JLabel();
-        datumiScrollPane = new javax.swing.JScrollPane();
-        datumiTextArea = new javax.swing.JTextArea();
-        datumiLabela3 = new javax.swing.JLabel();
-        vremenaLabela1 = new javax.swing.JLabel();
-        vremenaLabela2 = new javax.swing.JLabel();
-        vremenaScrollPane = new javax.swing.JScrollPane();
-        vremenaTextArea = new javax.swing.JTextArea();
-        vremenaLabela3 = new javax.swing.JLabel();
+        datumIVremeLabela1 = new javax.swing.JLabel();
+        datumIVremeDateTImePicker = new com.github.lgooddatepicker.components.DateTimePicker();
         sedistaLabela1 = new javax.swing.JLabel();
         sedistaTextField = new javax.swing.JTextField();
         cenaLabela1 = new javax.swing.JLabel();
         cenaTextField = new javax.swing.JTextField();
+        sedistaICenaLabela1 = new javax.swing.JLabel();
         dodajButton = new javax.swing.JButton();
+        obrisiButton = new javax.swing.JButton();
         unosenjeUspeloLabela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,67 +139,56 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
             }
         });
 
+        gradPolazkaLabela1.setText("Grad Polazka");
         gradPolazkaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         gradPolazkaLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        gradPolazkaLabela1.setText("Grad Polazka");
 
         gradPolazkaComboBox.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         gradPolazkaLabela2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         gradPolazkaLabela2.setForeground(new java.awt.Color(255, 51, 51));
 
+        gradDolazkaLabela1.setText("Grad Dolazka");
         gradDolazkaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         gradDolazkaLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        gradDolazkaLabela1.setText("Grad Dolazka");
 
         gradDolazkaComboBox.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         gradDolazkaLabela2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         gradDolazkaLabela2.setForeground(new java.awt.Color(255, 51, 51));
 
-        datumiLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        datumiLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        datumiLabela1.setText("Datumi");
+        datumIVremeLabela1.setText("Datum i vreme");
+        datumIVremeLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        datumIVremeLabela1.setForeground(new java.awt.Color(114, 137, 218));
 
-        datumiLabela2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        datumiLabela2.setForeground(new java.awt.Color(114, 137, 218));
-        datumiLabela2.setText("(DD.MM.GGGG jedan po liniji)");
-
-        datumiTextArea.setColumns(20);
-        datumiTextArea.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        datumiTextArea.setRows(5);
-        datumiScrollPane.setViewportView(datumiTextArea);
-
-        datumiLabela3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        datumiLabela3.setForeground(new java.awt.Color(255, 51, 51));
-
-        vremenaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        vremenaLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        vremenaLabela1.setText("Vremena");
-
-        vremenaLabela2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        vremenaLabela2.setForeground(new java.awt.Color(114, 137, 218));
-        vremenaLabela2.setText("(SS:MM jedno po liniji)");
-
-        vremenaTextArea.setColumns(20);
-        vremenaTextArea.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        vremenaTextArea.setRows(5);
-        vremenaScrollPane.setViewportView(vremenaTextArea);
-
-        vremenaLabela3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        vremenaLabela3.setForeground(new java.awt.Color(255, 51, 51));
-
+        sedistaLabela1.setText("Sedista");
         sedistaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         sedistaLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        sedistaLabela1.setText("Sedista");
 
+        cenaLabela1.setText("Cena");
         cenaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         cenaLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        cenaLabela1.setText("Cena");
 
+        sedistaICenaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        sedistaICenaLabela1.setForeground(new java.awt.Color(255, 51, 51));
+
+        dodajButton.setText("Dodaj");
         dodajButton.setBackground(new java.awt.Color(114, 137, 218));
         dodajButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        dodajButton.setText("Dodaj");
+        dodajButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dodajButtonMouseClicked(evt);
+            }
+        });
+
+        obrisiButton.setText("Obrisi");
+        obrisiButton.setBackground(new java.awt.Color(114, 137, 218));
+        obrisiButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        obrisiButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                obrisiButtonMouseClicked(evt);
+            }
+        });
 
         unosenjeUspeloLabela.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         unosenjeUspeloLabela.setForeground(new java.awt.Color(0, 153, 51));
@@ -204,40 +204,36 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                         .addComponent(backLabela))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(350, 350, 350)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(vremenaLabela1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(vremenaLabela2))
-                            .addComponent(gradDolazkaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(gradDolazkaComboBox, 0, 300, Short.MAX_VALUE)
-                            .addComponent(gradPolazkaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(gradPolazkaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(datumiLabela1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(datumiLabela2))
-                            .addComponent(datumiScrollPane)
-                            .addComponent(vremenaScrollPane)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(sedistaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sedistaTextField))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cenaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cenaTextField))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(unosenjeUspeloLabela))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gradPolazkaLabela2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(gradDolazkaLabela2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(datumIVremeDateTImePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(gradDolazkaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(gradDolazkaComboBox, 0, 300, Short.MAX_VALUE)
+                                    .addComponent(gradPolazkaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(gradPolazkaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(datumIVremeLabela1)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(dodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(obrisiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(gradPolazkaLabela2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(gradDolazkaLabela2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(datumiLabela3)
-                                    .addComponent(vremenaLabela3))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(sedistaTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(sedistaLabela1, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cenaLabela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cenaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(sedistaICenaLabela1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(unosenjeUspeloLabela))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(44, 44, 44))
         );
@@ -259,21 +255,9 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                     .addComponent(gradDolazkaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gradDolazkaLabela2))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datumiLabela1)
-                    .addComponent(datumiLabela2))
+                .addComponent(datumIVremeLabela1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datumiScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(datumiLabela3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vremenaLabela1)
-                    .addComponent(vremenaLabela2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(vremenaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vremenaLabela3))
+                .addComponent(datumIVremeDateTImePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sedistaLabela1)
@@ -282,10 +266,14 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sedistaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cenaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sedistaICenaLabela1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dodajButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(obrisiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(unosenjeUspeloLabela)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -306,17 +294,17 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseEntered
-
-        backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
-
-    }//GEN-LAST:event_backLabelaMouseEntered
-
     private void backLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseExited
 
         backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
 
     }//GEN-LAST:event_backLabelaMouseExited
+
+    private void backLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseEntered
+
+        backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
+
+    }//GEN-LAST:event_backLabelaMouseEntered
 
     private void backLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseClicked
 
@@ -326,6 +314,143 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         instanca.dispose();
 
     }//GEN-LAST:event_backLabelaMouseClicked
+
+    private void dodajButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dodajButtonMouseClicked
+
+        String gradPolazka;
+        String gradDolazka;
+        String datum;
+        String vreme;
+        int sedista;
+        int cena;
+
+        String neispravnoPoljeText = "Polje nije validno";
+
+        //Provera grada polazka
+        gradPolazka = (String) gradPolazkaComboBox.getSelectedItem();
+        if (gradPolazka == null) {
+
+            //Animacija u slucaju da je grad polazka neispravan
+            //gradPolazkaLabela2 animacija 1
+            int gradPolazkaLabela2BrzinaAnimacije1 = 10;
+            int gradPolazkaLabela2ZakasnjenjeAnimacije1 = 0;
+            int gradPolazkaLabela2CeloTrajanjeAnimacije1 = gradPolazkaLabela2BrzinaAnimacije1 * neispravnoPoljeText.length() + gradPolazkaLabela2ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(gradPolazkaLabela2, neispravnoPoljeText, gradPolazkaLabela2BrzinaAnimacije1, 0, gradPolazkaLabela2ZakasnjenjeAnimacije1);
+
+            //gradPolazkaLabela2 animacija 2
+            int gradPolazkaLabela2BrzinaAnimacije2 = 10;
+            int gradPolazkaLabela2ZakasnjenjeAnimacije2 = gradPolazkaLabela2CeloTrajanjeAnimacije1 + 3000;
+            int gradPolazkaLabela2CeloTrajanjeAnimacije2 = gradPolazkaLabela2BrzinaAnimacije2 * neispravnoPoljeText.length() + gradPolazkaLabela2ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(gradPolazkaLabela2, neispravnoPoljeText, gradPolazkaLabela2BrzinaAnimacije2, 1, gradPolazkaLabela2ZakasnjenjeAnimacije2);
+
+            return;
+
+        }
+
+        //Provera grada dolazka
+        gradDolazka = (String) gradDolazkaComboBox.getSelectedItem();
+        if (gradDolazka == null || gradDolazka.equals(gradPolazka)) {
+
+            if (gradDolazka != null && gradDolazka.equals(gradPolazka)) {
+                neispravnoPoljeText = "Gradovi dolazka i polazka ne mogu biti isti";
+            }
+
+            //Animacija u slucaju da je grad dolazka neispravan
+            //gradDolazkaLabela2 animacija 1
+            int gradDolazkaLabela2BrzinaAnimacije1 = 10;
+            int gradDolazkaLabela2ZakasnjenjeAnimacije1 = 0;
+            int gradDolazkaLabela2CeloTrajanjeAnimacije1 = gradDolazkaLabela2BrzinaAnimacije1 * neispravnoPoljeText.length() + gradDolazkaLabela2ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(gradDolazkaLabela2, neispravnoPoljeText, gradDolazkaLabela2BrzinaAnimacije1, 0, gradDolazkaLabela2ZakasnjenjeAnimacije1);
+
+            //gradDolazkaLabela2 animacija 2
+            int gradDolazkaLabela2BrzinaAnimacije2 = 10;
+            int gradDolazkaLabela2ZakasnjenjeAnimacije2 = gradDolazkaLabela2CeloTrajanjeAnimacije1 + 3000;
+            int gradDolazkaLabela2CeloTrajanjeAnimacije2 = gradDolazkaLabela2BrzinaAnimacije2 * neispravnoPoljeText.length() + gradDolazkaLabela2ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(gradDolazkaLabela2, neispravnoPoljeText, gradDolazkaLabela2BrzinaAnimacije2, 1, gradDolazkaLabela2ZakasnjenjeAnimacije2);
+
+            return;
+
+        }
+
+        //Provera datuma
+        datum = Metode.getDatumStringDDMMGGGGIzLocalDate(datumIVremeDateTImePicker.getDatePicker().getDate());
+        //Datum ne moze da se unese pogresno
+
+        //Provera vremena
+        vreme = Metode.getVremeStringSSMMIzLocalTime(datumIVremeDateTImePicker.getTimePicker().getTime());
+        //Vreme ne moze da se unese pogresno
+
+        //Provera sedista
+        try {
+            sedista = Integer.parseInt(sedistaTextField.getText());
+        } catch (Throwable throwable) {
+
+            neispravnoPoljeText = "\"Sedista\" polje nije validno";
+
+            //Animacija u slucaju da su sedista neispravna
+            //sedistaICenaLabela1 animacija 1
+            int sedistaICenaLabela1BrzinaAnimacije1 = 10;
+            int sedistaICenaLabela1ZakasnjenjeAnimacije1 = 0;
+            int sedistaICenaLabela1CeloTrajanjeAnimacije1 = sedistaICenaLabela1BrzinaAnimacije1 * neispravnoPoljeText.length() + sedistaICenaLabela1ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(sedistaICenaLabela1, neispravnoPoljeText, sedistaICenaLabela1BrzinaAnimacije1, 0, sedistaICenaLabela1ZakasnjenjeAnimacije1);
+
+            //sedistaICenaLabela1 animacija 2
+            int sedistaICenaLabela1BrzinaAnimacije2 = 10;
+            int sedistaICenaLabela1ZakasnjenjeAnimacije2 = sedistaICenaLabela1CeloTrajanjeAnimacije1 + 3000;
+            int sedistaICenaLabela1CeloTrajanjeAnimacije2 = sedistaICenaLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + sedistaICenaLabela1ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(sedistaICenaLabela1, neispravnoPoljeText, sedistaICenaLabela1BrzinaAnimacije2, 1, sedistaICenaLabela1ZakasnjenjeAnimacije2);
+
+            return;
+
+        }
+
+        //Provera cene
+        try {
+            cena = Integer.parseInt(cenaTextField.getText());
+        } catch (Throwable throwable) {
+
+            neispravnoPoljeText = "\"Cena\" polje nije validno";
+
+            //Animacija u slucaju da su sedista neispravna
+            //sedistaICenaLabela1 animacija 1
+            int sedistaICenaLabela1BrzinaAnimacije1 = 10;
+            int sedistaICenaLabela1ZakasnjenjeAnimacije1 = 0;
+            int sedistaICenaLabela1CeloTrajanjeAnimacije1 = sedistaICenaLabela1BrzinaAnimacije1 * neispravnoPoljeText.length() + sedistaICenaLabela1ZakasnjenjeAnimacije1;
+            LabelAnimacija.pokreni(sedistaICenaLabela1, neispravnoPoljeText, sedistaICenaLabela1BrzinaAnimacije1, 0, sedistaICenaLabela1ZakasnjenjeAnimacije1);
+
+            //sedistaICenaLabela1 animacija 2
+            int sedistaICenaLabela1BrzinaAnimacije2 = 10;
+            int sedistaICenaLabela1ZakasnjenjeAnimacije2 = sedistaICenaLabela1CeloTrajanjeAnimacije1 + 3000;
+            int sedistaICenaLabela1CeloTrajanjeAnimacije2 = sedistaICenaLabela1BrzinaAnimacije2 * neispravnoPoljeText.length() + sedistaICenaLabela1ZakasnjenjeAnimacije2;
+            LabelAnimacija.pokreni(sedistaICenaLabela1, neispravnoPoljeText, sedistaICenaLabela1BrzinaAnimacije2, 1, sedistaICenaLabela1ZakasnjenjeAnimacije2);
+
+            return;
+
+        }
+
+        AutobuskaLinija autobuskaLinija = new AutobuskaLinija(gradPolazka, gradDolazka, datum, vreme, sedista, cena);
+        FajlMenadzer.pisiFajl(AutobuskaLinija.imeFajla, autobuskaLinija.uString());
+        UcitaniPodaci.ucitajAutobuskeLinije();
+
+        //Animacija za uspesno unosenje
+        String uspesnoUnosenjeText = "Unošenje linije je uspelo!";
+        //unosenjeUspeloLabela animacija 1
+        int unosenjeUspeloLabelaBrzinaAnimacije1 = 10;
+        int unosenjeUspeloLabelaZakasnjenjeAnimacije1 = 0;
+        int unosenjeUspeloLabelaCeloTrajanjeAnimacije1 = unosenjeUspeloLabelaBrzinaAnimacije1 * uspesnoUnosenjeText.length() + unosenjeUspeloLabelaZakasnjenjeAnimacije1;
+        LabelAnimacija.pokreni(unosenjeUspeloLabela, uspesnoUnosenjeText, unosenjeUspeloLabelaBrzinaAnimacije1, 0, unosenjeUspeloLabelaZakasnjenjeAnimacije1);
+
+        //unosenjeUspeloLabela animacija 2
+        int unosenjeUspeloLabelaBrzinaAnimacije2 = 10;
+        int unosenjeUspeloLabelaZakasnjenjeAnimacije2 = unosenjeUspeloLabelaCeloTrajanjeAnimacije1 + 3000;
+        int unosenjeUspeloLabelaCeloTrajanjeAnimacije2 = unosenjeUspeloLabelaBrzinaAnimacije2 * uspesnoUnosenjeText.length() + unosenjeUspeloLabelaZakasnjenjeAnimacije2;
+        LabelAnimacija.pokreni(unosenjeUspeloLabela, uspesnoUnosenjeText, unosenjeUspeloLabelaBrzinaAnimacije2, 1, unosenjeUspeloLabelaZakasnjenjeAnimacije2);
+
+    }//GEN-LAST:event_dodajButtonMouseClicked
+
+    private void obrisiButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obrisiButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_obrisiButtonMouseClicked
 
     public static void main(String args[]) {
         try {
@@ -356,11 +481,8 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
     private javax.swing.JLabel backLabela;
     private javax.swing.JLabel cenaLabela1;
     private javax.swing.JTextField cenaTextField;
-    private javax.swing.JLabel datumiLabela1;
-    private javax.swing.JLabel datumiLabela2;
-    private javax.swing.JLabel datumiLabela3;
-    private javax.swing.JScrollPane datumiScrollPane;
-    private javax.swing.JTextArea datumiTextArea;
+    private com.github.lgooddatepicker.components.DateTimePicker datumIVremeDateTImePicker;
+    private javax.swing.JLabel datumIVremeLabela1;
     private javax.swing.JButton dodajButton;
     private javax.swing.JComboBox<String> gradDolazkaComboBox;
     private javax.swing.JLabel gradDolazkaLabela1;
@@ -369,13 +491,10 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
     private javax.swing.JLabel gradPolazkaLabela1;
     private javax.swing.JLabel gradPolazkaLabela2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton obrisiButton;
+    private javax.swing.JLabel sedistaICenaLabela1;
     private javax.swing.JLabel sedistaLabela1;
     private javax.swing.JTextField sedistaTextField;
     private javax.swing.JLabel unosenjeUspeloLabela;
-    private javax.swing.JLabel vremenaLabela1;
-    private javax.swing.JLabel vremenaLabela2;
-    private javax.swing.JLabel vremenaLabela3;
-    private javax.swing.JScrollPane vremenaScrollPane;
-    private javax.swing.JTextArea vremenaTextArea;
     // End of variables declaration//GEN-END:variables
 }

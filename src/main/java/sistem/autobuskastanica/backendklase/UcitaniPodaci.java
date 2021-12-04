@@ -12,6 +12,7 @@ public class UcitaniPodaci {
     private static List<Status> statusi = new ArrayList<>();
     private static List<StatusZaposlenog> statusiZaposlenih = new ArrayList<>();
     private static List<Zaposlen> zaposleni = new ArrayList<>();
+    private static List<AutobuskaLinija> autobuskeLinije = new ArrayList<>();
 
     public static int getPrviSlobodanIDZaposlenog() {
 
@@ -160,6 +161,29 @@ public class UcitaniPodaci {
             while ((linija = bufferedReader.readLine()) != null) {
 
                 zaposleni.add(Zaposlen.izStringa(linija));
+
+            }
+            bufferedReader.close();
+
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+    }
+    
+    public static void ucitajAutobuskeLinije() {
+
+        autobuskeLinije.clear();
+
+        File autobuskeLinijeFajl = new File("podaci" + File.separator + AutobuskaLinija.imeFajla);
+
+        try {
+
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(autobuskeLinijeFajl));
+            String linija;
+            while ((linija = bufferedReader.readLine()) != null) {
+
+                autobuskeLinije.add(AutobuskaLinija.izStringa(linija));
 
             }
             bufferedReader.close();
