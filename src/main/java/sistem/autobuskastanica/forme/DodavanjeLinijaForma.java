@@ -461,7 +461,14 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
     }//GEN-LAST:event_dodajButtonMouseClicked
 
     private void obrisiButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obrisiButtonMouseClicked
-        // TODO add your handling code here:
+        
+        gradPolazkaComboBox.setSelectedIndex(0);
+        gradDolazkaComboBox.setSelectedIndex(0);
+        datumIVremeDateTImePicker.getDatePicker().setDateToToday();
+        datumIVremeDateTImePicker.getTimePicker().setTime(LocalTime.MIN);
+        sedistaTextField.setText("");
+        cenaTextField.setText("");
+        
     }//GEN-LAST:event_obrisiButtonMouseClicked
 
     public static void main(String args[]) {
