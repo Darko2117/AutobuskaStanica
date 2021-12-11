@@ -226,4 +226,12 @@ public class UcitaniPodaci {
         UcitaniPodaci.zaposleni = zaposleni;
     }
 
+    public static List<AutobuskaLinija> getAutobuskeLinije() {
+        return autobuskeLinije;
+    }
+
+    public static void setAutobuskeLinije(List<AutobuskaLinija> autobuskeLinije) {
+        UcitaniPodaci.autobuskeLinije = autobuskeLinije;
+    }
+
 }

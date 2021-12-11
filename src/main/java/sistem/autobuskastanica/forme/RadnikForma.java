@@ -4,6 +4,7 @@
  */
 package sistem.autobuskastanica.forme;
 
+import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.Zaposlen;
 
 /**
@@ -24,6 +25,8 @@ public class RadnikForma extends javax.swing.JFrame {
         
         initComponents();
         
+        pocetneAnimacije();
+        
     }
     
     public RadnikForma(Zaposlen zaposlen) {
@@ -33,6 +36,18 @@ public class RadnikForma extends javax.swing.JFrame {
         
         initComponents();
         
+        pocetneAnimacije();
+        
+    }
+    
+    private void pocetneAnimacije(){
+    
+        if(vlasnikForme == null) return;
+    
+        String Labela1Text = "RADNIK: " + vlasnikForme.getIme() + " " + vlasnikForme.getPrezime();
+        Labela1.setText("");
+        LabelAnimacija.pokreni(Labela1, Labela1Text, 25, 0, 250);
+    
     }
 
     /**
@@ -46,7 +61,7 @@ public class RadnikForma extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Labela1 = new javax.swing.JLabel();
-        BackLabela = new javax.swing.JLabel();
+        backLabela = new javax.swing.JLabel();
         IzdavanjeKarataButton = new javax.swing.JButton();
         StatusLinijaButton = new javax.swing.JButton();
         DodavanjeLinijaButton = new javax.swing.JButton();
@@ -67,16 +82,16 @@ public class RadnikForma extends javax.swing.JFrame {
         Labela1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Labela1.setText("RADNIK");
 
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
-        BackLabela.addMouseListener(new java.awt.event.MouseAdapter() {
+        backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
+        backLabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BackLabelaMouseClicked(evt);
+                backLabelaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BackLabelaMouseEntered(evt);
+                backLabelaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                BackLabelaMouseExited(evt);
+                backLabelaMouseExited(evt);
             }
         });
 
@@ -97,11 +112,16 @@ public class RadnikForma extends javax.swing.JFrame {
         StatusLinijaButton.setBackground(new java.awt.Color(114, 137, 218));
         StatusLinijaButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         StatusLinijaButton.setForeground(new java.awt.Color(44, 47, 51));
-        StatusLinijaButton.setText("STATUS LINIJA");
+        StatusLinijaButton.setText("STATISTIKA LINIJA");
         StatusLinijaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         StatusLinijaButton.setMaximumSize(new java.awt.Dimension(250, 30));
         StatusLinijaButton.setMinimumSize(new java.awt.Dimension(250, 30));
         StatusLinijaButton.setPreferredSize(new java.awt.Dimension(250, 30));
+        StatusLinijaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StatusLinijaButtonMouseClicked(evt);
+            }
+        });
         StatusLinijaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StatusLinijaButtonActionPerformed(evt);
@@ -145,7 +165,7 @@ public class RadnikForma extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BackLabela))
+                        .addComponent(backLabela))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +183,7 @@ public class RadnikForma extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BackLabela)
+                .addComponent(backLabela)
                 .addGap(18, 18, 18)
                 .addComponent(Labela1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
@@ -192,7 +212,12 @@ public class RadnikForma extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IzdavanjeKarataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IzdavanjeKarataButtonActionPerformed
-        // TODO add your handling code here:
+        
+        IzdavanjeKarataForma izdavanjeKarataForma = new IzdavanjeKarataForma(vlasnikForme);
+        izdavanjeKarataForma.setLocation(instanca.getLocation());
+        izdavanjeKarataForma.setVisible(true);
+        instanca.dispose();
+        
     }//GEN-LAST:event_IzdavanjeKarataButtonActionPerformed
 
     private void StatusLinijaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusLinijaButtonActionPerformed
@@ -212,26 +237,35 @@ public class RadnikForma extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_OstavljanjeStvariButtonActionPerformed
 
-    private void BackLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseEntered
+    private void backLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseEntered
         
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
+        backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.png")));
         
-    }//GEN-LAST:event_BackLabelaMouseEntered
+    }//GEN-LAST:event_backLabelaMouseEntered
 
-    private void BackLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseExited
+    private void backLabelaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseExited
         
-        BackLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
+        backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png")));
         
-    }//GEN-LAST:event_BackLabelaMouseExited
+    }//GEN-LAST:event_backLabelaMouseExited
 
-    private void BackLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelaMouseClicked
+    private void backLabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseClicked
         
         LoginForma loginForma = new LoginForma();
         loginForma.setLocation(instanca.getLocation());
         loginForma.setVisible(true);
         instanca.dispose();
         
-    }//GEN-LAST:event_BackLabelaMouseClicked
+    }//GEN-LAST:event_backLabelaMouseClicked
+
+    private void StatusLinijaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StatusLinijaButtonMouseClicked
+        
+        StatistikaLinijaForma statistikaLinijaForma = new StatistikaLinijaForma();
+        statistikaLinijaForma.setLocation(instanca.getLocation());
+        statistikaLinijaForma.setVisible(true);
+        instanca.dispose();
+        
+    }//GEN-LAST:event_StatusLinijaButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -269,12 +303,12 @@ public class RadnikForma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BackLabela;
     private javax.swing.JButton DodavanjeLinijaButton;
     private javax.swing.JButton IzdavanjeKarataButton;
     private javax.swing.JLabel Labela1;
     private javax.swing.JButton OstavljanjeStvariButton;
     private javax.swing.JButton StatusLinijaButton;
+    private javax.swing.JLabel backLabela;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

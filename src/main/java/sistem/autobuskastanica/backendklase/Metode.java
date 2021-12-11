@@ -47,6 +47,8 @@ public class Metode {
         datum.append(mesec).append(".");
 
         datum.append(godina);
+        
+        datum.append(".");
 
         return datum.toString();
 
