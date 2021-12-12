@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import sistem.autobuskastanica.backendklase.AutobuskaLinija;
+import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
 import sistem.autobuskastanica.backendklase.Metode;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
@@ -397,7 +398,6 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         cenaString = cenaString.substring(0, cenaString.indexOf("din."));
         int cena = Integer.valueOf(cenaString);
 
-        AutobuskaLinija autobuskaLinija = new AutobuskaLinija(mestoPolazka, mestoDolazka, datum, vreme, mesta, cena);
         int brojKarata = (int) brojKarataSpinner.getValue();
         String vrstaKarte = "";
         if (odrasliRadioButton.isSelected()) {
@@ -407,6 +407,13 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         } else if (decaRadioButton.isSelected()) {
             vrstaKarte = "Deca";
         }
+
+        mesta -= brojKarata;
+
+        AutobuskaLinija autobuskaLinija = new AutobuskaLinija(mestoPolazka, mestoDolazka, datum, vreme, mesta, cena);
+
+        FajlMenadzer.updateAutobuskuLiniju(autobuskaLinija);
+        UcitaniPodaci.ucitajAutobuskeLinije();
 
         RacunForma racunForma = new RacunForma(vlasnikForme, autobuskaLinija, brojKarata, vrstaKarte);
         racunForma.setLocation(instanca.getLocation());
