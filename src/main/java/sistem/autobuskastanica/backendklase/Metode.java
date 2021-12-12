@@ -6,11 +6,14 @@ package sistem.autobuskastanica.backendklase;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -47,18 +50,18 @@ public class Metode {
         datum.append(mesec).append(".");
 
         datum.append(godina);
-        
+
         datum.append(".");
 
         return datum.toString();
 
     }
-    
-    public static String getVremeStringSSMMIzLocalTime(LocalTime localTime){
-    
+
+    public static String getVremeStringSSMMIzLocalTime(LocalTime localTime) {
+
         int sat = localTime.getHour();
         int minut = localTime.getMinute();
-        
+
         StringBuilder vreme = new StringBuilder();
 
         if (sat < 10) {
@@ -74,7 +77,7 @@ public class Metode {
         vreme.append(minut);
 
         return vreme.toString();
-    
+
     }
 
     public static String getVremeString() {
@@ -167,6 +170,49 @@ public class Metode {
 
         return stringLista;
 
+    }
+
+    public static String getRandomGradAutobuskeLinije() {
+
+        return AutobuskaLinija.dozvoljeniGradovi.get(ThreadLocalRandom.current().nextInt(AutobuskaLinija.dozvoljeniGradovi.size()));
+
+    }
+
+    public static String getRandomDatumString(long unazadDana, long unapredDana) {
+
+        return getDatumStringDDMMGGGGIzLocalDate(LocalDate.ofEpochDay(ThreadLocalRandom.current().nextLong(LocalDate.now().toEpochDay() - unazadDana, LocalDate.now().toEpochDay() + unapredDana)));
+
+    }
+
+    public static String getRandomVremeString() {
+
+        return getVremeStringSSMMIzLocalTime(LocalTime.of(ThreadLocalRandom.current().nextInt(0, 24), ThreadLocalRandom.current().nextInt(0, 60)));
+
+    }
+
+    public static LocalDate getLocalDateIzDDMMGGGGStringa(String string) {
+
+        int dan = Integer.valueOf(string.substring(0, string.indexOf(".")));
+        string = string.substring(string.indexOf(".") + 1);
+
+        int mesec = Integer.valueOf(string.substring(0, string.indexOf(".")));
+        string = string.substring(string.indexOf(".") + 1);
+
+        int godina = Integer.valueOf(string.substring(0, string.indexOf(".")));
+
+        return LocalDate.of(godina, mesec, dan);
+
+    }
+
+    public static LocalTime getLocalTimeIzSSMMStringa(String string) {
+
+        int sat = Integer.valueOf(string.substring(0, string.indexOf(":")));
+        string = string.substring(string.indexOf(":") + 1);
+        
+        int minut = Integer.valueOf(string);
+        
+        return LocalTime.of(sat, minut);
+        
     }
 
 }

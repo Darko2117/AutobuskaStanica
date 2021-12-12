@@ -122,11 +122,6 @@ public class RadnikForma extends javax.swing.JFrame {
                 StatusLinijaButtonMouseClicked(evt);
             }
         });
-        StatusLinijaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StatusLinijaButtonActionPerformed(evt);
-            }
-        });
 
         DodavanjeLinijaButton.setBackground(new java.awt.Color(114, 137, 218));
         DodavanjeLinijaButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -220,10 +215,6 @@ public class RadnikForma extends javax.swing.JFrame {
         
     }//GEN-LAST:event_IzdavanjeKarataButtonActionPerformed
 
-    private void StatusLinijaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusLinijaButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StatusLinijaButtonActionPerformed
-
     private void DodavanjeLinijaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodavanjeLinijaButtonActionPerformed
         
         DodavanjeLinijaForma dodavanjeLinijaForma = new DodavanjeLinijaForma(vlasnikForme);
@@ -260,7 +251,7 @@ public class RadnikForma extends javax.swing.JFrame {
 
     private void StatusLinijaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StatusLinijaButtonMouseClicked
         
-        StatistikaLinijaForma statistikaLinijaForma = new StatistikaLinijaForma();
+        StatistikaLinijaForma statistikaLinijaForma = new StatistikaLinijaForma(vlasnikForme);
         statistikaLinijaForma.setLocation(instanca.getLocation());
         statistikaLinijaForma.setVisible(true);
         instanca.dispose();

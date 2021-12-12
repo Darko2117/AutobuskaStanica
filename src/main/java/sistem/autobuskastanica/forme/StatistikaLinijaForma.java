@@ -54,7 +54,7 @@ public class StatistikaLinijaForma extends javax.swing.JFrame {
 
         DefaultTableModel defaultTableModel = (DefaultTableModel) Tabela.getModel();
         defaultTableModel.setRowCount(0);
-
+        
         for (AutobuskaLinija autobuskaLinija : UcitaniPodaci.getAutobuskeLinije()) {
 
             if (!autobuskaLinija.uString().toLowerCase().contains(poslednjaVrednostPretragaTextFielda.toLowerCase())) {
@@ -67,7 +67,7 @@ public class StatistikaLinijaForma extends javax.swing.JFrame {
             redPodaci.add(autobuskaLinija.getDatum());
             redPodaci.add(autobuskaLinija.getVreme());
             redPodaci.add(autobuskaLinija.getBrojMesta());
-            redPodaci.add(autobuskaLinija.getCena());
+            redPodaci.add(autobuskaLinija.getCena() + "din.");
 
             defaultTableModel.addRow(redPodaci);
 

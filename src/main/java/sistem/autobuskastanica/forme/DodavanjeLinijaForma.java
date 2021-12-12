@@ -3,7 +3,11 @@ package sistem.autobuskastanica.forme;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import javax.swing.JOptionPane;
 import sistem.autobuskastanica.backendklase.AutobuskaLinija;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
@@ -126,6 +130,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         dodajButton = new javax.swing.JButton();
         obrisiButton = new javax.swing.JButton();
         unosenjeUspeloLabela = new javax.swing.JLabel();
+        dodajRandomButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 650));
@@ -205,6 +210,16 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         unosenjeUspeloLabela.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         unosenjeUspeloLabela.setForeground(new java.awt.Color(0, 153, 51));
 
+        dodajRandomButton.setText("+");
+        dodajRandomButton.setBackground(new java.awt.Color(44, 44, 44));
+        dodajRandomButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
+        dodajRandomButton.setForeground(new java.awt.Color(255, 255, 255));
+        dodajRandomButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dodajRandomButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -248,6 +263,10 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                                     .addComponent(unosenjeUspeloLabela))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(44, 44, 44))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dodajRandomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +304,9 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                     .addComponent(obrisiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(unosenjeUspeloLabela)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(dodajRandomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -461,15 +482,61 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
     }//GEN-LAST:event_dodajButtonMouseClicked
 
     private void obrisiButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obrisiButtonMouseClicked
-        
+
         gradPolazkaComboBox.setSelectedIndex(0);
         gradDolazkaComboBox.setSelectedIndex(0);
         datumIVremeDateTImePicker.getDatePicker().setDateToToday();
         datumIVremeDateTImePicker.getTimePicker().setTime(LocalTime.MIN);
         sedistaTextField.setText("");
         cenaTextField.setText("");
-        
+
     }//GEN-LAST:event_obrisiButtonMouseClicked
+
+    private void dodajRandomButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dodajRandomButtonMouseClicked
+
+        if (JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da dodate 1000 random linija?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
+            long pocetakVreme = System.currentTimeMillis();
+            
+            for (int i = 0; i < 1000; i++) {
+
+                String randomGradPolazka = Metode.getRandomGradAutobuskeLinije();
+
+                String randomGradDolazka;
+                while (true) {
+                    randomGradDolazka = Metode.getRandomGradAutobuskeLinije();
+                    if (!randomGradDolazka.equals(randomGradPolazka)) {
+                        break;
+                    }
+                }
+
+                String randomDatum = Metode.getRandomDatumString(10, 365);
+
+                String randomVreme;
+                while (true) {
+                    randomVreme = Metode.getRandomVremeString();
+                    if (Integer.valueOf(randomVreme.substring(randomVreme.indexOf(":") + 1)) % 15 == 0) {
+                        break;
+                    }
+                }
+
+                int randomBrojSedista = ThreadLocalRandom.current().nextInt(0, 100);
+                int randomCena = ThreadLocalRandom.current().nextInt(200, 2000);
+
+                AutobuskaLinija autobuskaLinija = new AutobuskaLinija(randomGradPolazka, randomGradDolazka, randomDatum, randomVreme, randomBrojSedista, randomCena);
+                FajlMenadzer.pisiFajl(AutobuskaLinija.imeFajla, autobuskaLinija.uString());
+
+            }
+            
+            UcitaniPodaci.ucitajAutobuskeLinije();
+            
+            long zavrsetakVreme = System.currentTimeMillis();
+            
+            JOptionPane.showMessageDialog(this, "Uspešno dodato 1000 linija!\nBilo je potrebno " + (zavrsetakVreme - pocetakVreme) + "ms.");
+
+        }
+
+    }//GEN-LAST:event_dodajRandomButtonMouseClicked
 
     public static void main(String args[]) {
         try {
@@ -503,6 +570,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DateTimePicker datumIVremeDateTImePicker;
     private javax.swing.JLabel datumIVremeLabela1;
     private javax.swing.JButton dodajButton;
+    private javax.swing.JButton dodajRandomButton;
     private javax.swing.JComboBox<String> gradDolazkaComboBox;
     private javax.swing.JLabel gradDolazkaLabela1;
     private javax.swing.JLabel gradDolazkaLabela2;
