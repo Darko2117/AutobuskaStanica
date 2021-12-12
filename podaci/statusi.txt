@@ -1,3 +1,0 @@
-Br:0	Status:radnik
-Br:1	Status:menadzer
-Br:2	Status:obrisan
