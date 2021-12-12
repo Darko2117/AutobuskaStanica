@@ -54,7 +54,7 @@ public class StatistikaLinijaForma extends javax.swing.JFrame {
 
         DefaultTableModel defaultTableModel = (DefaultTableModel) Tabela.getModel();
         defaultTableModel.setRowCount(0);
-        
+
         for (AutobuskaLinija autobuskaLinija : UcitaniPodaci.getAutobuskeLinije()) {
 
             if (!autobuskaLinija.uString().toLowerCase().contains(poslednjaVrednostPretragaTextFielda.toLowerCase())) {
@@ -98,6 +98,10 @@ public class StatistikaLinijaForma extends javax.swing.JFrame {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
+
+                if (!instanca.isShowing()) {
+                    return;
+                }
 
                 if (!poslednjaVrednostPretragaTextFielda.equals(pretragaTextField.getText())) {
                     poslednjaVrednostPretragaTextFielda = pretragaTextField.getText();

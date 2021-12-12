@@ -13,6 +13,7 @@ public class UcitaniPodaci {
     private static List<StatusZaposlenog> statusiZaposlenih = new ArrayList<>();
     private static List<Zaposlen> zaposleni = new ArrayList<>();
     private static List<AutobuskaLinija> autobuskeLinije = new ArrayList<>();
+    private static List<OstavljeneStvari> ostavljeneStvari = new ArrayList<>();
 
     public static int getPrviSlobodanIDZaposlenog() {
 
@@ -193,6 +194,29 @@ public class UcitaniPodaci {
         }
 
     }
+    
+    public static void ucitajOstavljeneStvari() {
+
+        ostavljeneStvari.clear();
+
+        File ostavljeneStvariFajl = new File("podaci" + File.separator + OstavljeneStvari.imeFajla);
+
+        try {
+
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(ostavljeneStvariFajl));
+            String linija;
+            while ((linija = bufferedReader.readLine()) != null) {
+
+                ostavljeneStvari.add(OstavljeneStvari.izStringa(linija));
+
+            }
+            bufferedReader.close();
+
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+    }
 
     public static List<Korisnik> getKorisnici() {
         return korisnici;
@@ -234,4 +258,12 @@ public class UcitaniPodaci {
         UcitaniPodaci.autobuskeLinije = autobuskeLinije;
     }
 
+    public static List<OstavljeneStvari> getOstavljeneStvari() {
+        return ostavljeneStvari;
+    }
+
+    public static void setOstavljeneStvari(List<OstavljeneStvari> ostavljeneStvari) {
+        UcitaniPodaci.ostavljeneStvari = ostavljeneStvari;
+    }
+    
 }

@@ -6,7 +6,6 @@ package sistem.autobuskastanica.forme;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
@@ -114,6 +113,10 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
             @Override
             public void run() {
 
+                if (!instanca.isShowing()) {
+                    return;
+                }
+
                 if (!poslednjaVrednostPretragaTextFielda.equals(pretragaTextField.getText())) {
                     poslednjaVrednostPretragaTextFielda = pretragaTextField.getText();
                     ucitajTabelu();
@@ -209,9 +212,9 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         tabela.setShowGrid(true);
         jScrollPane1.setViewportView(tabela);
 
-        brojKarataLabela.setText("Broj karata");
         brojKarataLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         brojKarataLabela.setForeground(new java.awt.Color(114, 137, 218));
+        brojKarataLabela.setText("Broj karata");
 
         brojKarataSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 90, 1));
 
@@ -265,13 +268,12 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
                                     .addComponent(odrasliRadioButton)
                                     .addComponent(penzioneriRadioButton)
                                     .addComponent(decaRadioButton)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pretragaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(greskaLabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pretragaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(greskaLabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -364,7 +366,7 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
             return;
 
         }
-        
+
         if (Integer.valueOf(String.valueOf(tabela.getValueAt(tabela.getSelectedRow(), 4))) < (int) brojKarataSpinner.getValue()) {
 
             String nijeSelektovanoLabelaText = "Na toj liniji nema dovoljno mesta";

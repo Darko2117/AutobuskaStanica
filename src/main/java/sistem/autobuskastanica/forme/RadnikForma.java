@@ -225,7 +225,12 @@ public class RadnikForma extends javax.swing.JFrame {
     }//GEN-LAST:event_DodavanjeLinijaButtonActionPerformed
 
     private void OstavljanjeStvariButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OstavljanjeStvariButtonActionPerformed
-        // TODO add your handling code here:
+       
+        OstavljanjeStvariForma ostavljanjeStvariForma = new OstavljanjeStvariForma(vlasnikForme);
+        ostavljanjeStvariForma.setLocation(instanca.getLocation());
+        ostavljanjeStvariForma.setVisible(true);
+        instanca.dispose();
+        
     }//GEN-LAST:event_OstavljanjeStvariButtonActionPerformed
 
     private void backLabelaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelaMouseEntered

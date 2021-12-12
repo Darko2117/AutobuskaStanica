@@ -14,6 +14,7 @@ public class FajlMenadzer {
         pisiFajl(StatusZaposlenog.imeFajla, "");
         pisiFajl(Zaposlen.imeFajla, "");
         pisiFajl(AutobuskaLinija.imeFajla, "");
+        pisiFajl(OstavljeneStvari.imeFajla, "");
 
         if(!new File("podaci" + File.separator + Status.imeFajla).exists()){
             pisiFajl(Status.imeFajla, new Status(0, "radnik").uString());
