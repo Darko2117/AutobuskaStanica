@@ -20,6 +20,8 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
     public DodavanjeLinijaForma() {
 
+        UcitaniPodaci.ucitajSvePodatke();
+
         instanca = this;
 
         initComponents();
@@ -30,10 +32,12 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
     }
 
-    public DodavanjeLinijaForma(Zaposlen zaposlen) {
+    public DodavanjeLinijaForma(Zaposlen vlasnikForme) {
+
+        UcitaniPodaci.ucitajSvePodatke();
 
         instanca = this;
-        vlasnikForme = zaposlen;
+        vlasnikForme = vlasnikForme;
 
         initComponents();
 
@@ -46,9 +50,9 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
     private void ucitavanjeComboBoxeva() {
 
         /*        
-        Ovako bih uradio ovaj deo ali zbog nekog razloga DefaultComboBoxModel.addAll() izbacuje gresku kada mu se da lista
-        Program svakako radi ali outputuje warning prilikom prvog builda
-        Da bi bilo sto manje upozorenja tokom buildovanja, uradio sam ovaj duzi i gori nacin
+        Ovako bih uradio ovaj deo ali zbog nekog razloga DefaultComboBoxModel.addAll() izbacuje gresku kada mu se da lista.
+        Program svakako radi ali outputuje warning prilikom prvog builda.
+        Da bi bilo sto manje upozorenja tokom buildovanja, uradio sam ovaj duzi i gori nacin.
         
         DefaultComboBoxModel defaultComboBoxModel;
 
@@ -362,7 +366,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         gradPolazka = (String) gradPolazkaComboBox.getSelectedItem();
         if (gradPolazka == null) {
 
-            //Animacija u slucaju da je grad polazka neispravan
+            //Animacija u slucaju da grad polazka nije validan
             //gradPolazkaLabela2 animacija 1
             int gradPolazkaLabela2BrzinaAnimacije1 = 10;
             int gradPolazkaLabela2ZakasnjenjeAnimacije1 = 0;
@@ -387,7 +391,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                 neispravnoPoljeText = "Gradovi dolazka i polazka ne mogu biti isti";
             }
 
-            //Animacija u slucaju da je grad dolazka neispravan
+            //Animacija u slucaju da grad dolazka nije validan
             //gradDolazkaLabela2 animacija 1
             int gradDolazkaLabela2BrzinaAnimacije1 = 10;
             int gradDolazkaLabela2ZakasnjenjeAnimacije1 = 0;
@@ -419,7 +423,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
             neispravnoPoljeText = "\"Sedista\" polje nije validno";
 
-            //Animacija u slucaju da su sedista neispravna
+            //Animacija u slucaju da sedista nisu validna
             //sedistaICenaLabela1 animacija 1
             int sedistaICenaLabela1BrzinaAnimacije1 = 10;
             int sedistaICenaLabela1ZakasnjenjeAnimacije1 = 0;
@@ -443,7 +447,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
             neispravnoPoljeText = "\"Cena\" polje nije validno";
 
-            //Animacija u slucaju da su sedista neispravna
+            //Animacija u slucaju da cena nije validna
             //sedistaICenaLabela1 animacija 1
             int sedistaICenaLabela1BrzinaAnimacije1 = 10;
             int sedistaICenaLabela1ZakasnjenjeAnimacije1 = 0;
@@ -464,8 +468,8 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         FajlMenadzer.pisiFajl(AutobuskaLinija.imeFajla, autobuskaLinija.uString());
         UcitaniPodaci.ucitajAutobuskeLinije();
 
-        //Animacija za uspesno unosenje
         String uspesnoUnosenjeText = "Unošenje linije je uspelo!";
+        //Animacija za uspesno unosenje
         //unosenjeUspeloLabela animacija 1
         int unosenjeUspeloLabelaBrzinaAnimacije1 = 10;
         int unosenjeUspeloLabelaZakasnjenjeAnimacije1 = 0;
@@ -496,7 +500,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da dodate 1000 random linija?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
             long pocetakVreme = System.currentTimeMillis();
-            
+
             for (int i = 0; i < 1000; i++) {
 
                 String randomGradPolazka = Metode.getRandomGradAutobuskeLinije();
@@ -526,11 +530,11 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
                 FajlMenadzer.pisiFajl(AutobuskaLinija.imeFajla, autobuskaLinija.uString());
 
             }
-            
+
             UcitaniPodaci.ucitajAutobuskeLinije();
-            
+
             long zavrsetakVreme = System.currentTimeMillis();
-            
+
             JOptionPane.showMessageDialog(this, "Uspešno dodato 1000 linija!\nBilo je potrebno " + (zavrsetakVreme - pocetakVreme) + "ms.");
 
         }

@@ -80,6 +80,19 @@ public class UcitaniPodaci {
 
     }
 
+    //Metoda je stavljena na sve konstruktore formi da bi se smanjio broj slucajeva
+    //kada nastaje error prilikom pokretanja samo jedne forme umesto celog projekta.
+    public static void ucitajSvePodatke() {
+
+        ucitajKorisnike();
+        ucitajStatuse();
+        ucitajStatuseZaposlenih();
+        ucitajZaposlene();
+        ucitajAutobuskeLinije();
+        ucitajOstavljeneStvari();
+
+    }
+
     public static void ucitajKorisnike() {
 
         korisnici.clear();
@@ -171,7 +184,7 @@ public class UcitaniPodaci {
         }
 
     }
-    
+
     public static void ucitajAutobuskeLinije() {
 
         autobuskeLinije.clear();
@@ -194,7 +207,7 @@ public class UcitaniPodaci {
         }
 
     }
-    
+
     public static void ucitajOstavljeneStvari() {
 
         ostavljeneStvari.clear();
@@ -265,5 +278,5 @@ public class UcitaniPodaci {
     public static void setOstavljeneStvari(List<OstavljeneStvari> ostavljeneStvari) {
         UcitaniPodaci.ostavljeneStvari = ostavljeneStvari;
     }
-    
+
 }

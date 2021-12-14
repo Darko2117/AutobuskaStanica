@@ -10,12 +10,10 @@ public class StatusZaposlenog {
     public static final String imeFajla = "statusiZaposlenih.txt";
 
     public StatusZaposlenog(int IDZaposlenog, String datum, String vreme, int IDStatusa) {
-
         this.IDZaposlenog = IDZaposlenog;
         this.datum = datum;
         this.vreme = vreme;
         this.IDStatusa = IDStatusa;
-
     }
 
     public static StatusZaposlenog izStringa(String string) {

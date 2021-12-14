@@ -37,7 +37,7 @@ public class Korisnik {
         return stringBuilder.toString();
 
     }
-    
+
     public int getIDZaposlenog() {
         return IDZaposlenog;
     }
@@ -45,7 +45,7 @@ public class Korisnik {
     public void setIDZaposlenog(int IDZaposlenog) {
         this.IDZaposlenog = IDZaposlenog;
     }
-    
+
     public String getKorisnickoIme() {
         return korisnickoIme;
     }

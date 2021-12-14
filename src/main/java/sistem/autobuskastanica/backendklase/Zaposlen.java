@@ -12,7 +12,6 @@ public class Zaposlen {
     public static final String imeFajla = "zaposleni.txt";
 
     public Zaposlen(int ID, String ime, String prezime, String datumZasnivanjaRadnogOdnosa, String datumPrestankaRadnogOdnosa, int status) {
-
         this.ID = ID;
         this.ime = ime;
         this.prezime = prezime;
@@ -23,7 +22,6 @@ public class Zaposlen {
         if (this.datumPrestankaRadnogOdnosa.isEmpty()) {
             this.datumPrestankaRadnogOdnosa = "-";
         }
-
     }
 
     public static Zaposlen izStringa(String string) {

@@ -412,7 +412,7 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
 
         AutobuskaLinija autobuskaLinija = new AutobuskaLinija(mestoPolazka, mestoDolazka, datum, vreme, mesta, cena);
 
-        FajlMenadzer.updateAutobuskuLiniju(autobuskaLinija);
+        FajlMenadzer.updateBrojMestaAutobuskeLinije(autobuskaLinija);
         UcitaniPodaci.ucitajAutobuskeLinije();
 
         RacunForma racunForma = new RacunForma(vlasnikForme, autobuskaLinija, brojKarata, vrstaKarte);

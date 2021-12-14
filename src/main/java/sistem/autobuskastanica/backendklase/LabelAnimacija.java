@@ -1,18 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistem.autobuskastanica.backendklase;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- *
- * @author Darko
- */
 public class LabelAnimacija {
 
+    /**
+     * Zakazuje potrebne taskove za animaciju teksta.
+     *
+     * @param labela Labela na kojoj se vrsi animacija.
+     * @param text Tekst labele.
+     * @param msPoKarakteru Broj milisekundi po karakteru animacije.
+     * @param mod Mod animacije, 0 - tekst se stvara, 1 - tekst nestaje.
+     * @param zakasnjenje Broj milisekundi cekanja pre pocetka animacije.
+     */
     public static void pokreni(javax.swing.JLabel labela, String text, int msPoKarakteru, int mod, int zakasnjenje) {
 
         Timer timer = new Timer();
@@ -35,7 +36,9 @@ public class LabelAnimacija {
                             @Override
                             public void run() {
                                 labela.setText(text.substring(0, kopijaI));
-                                if(kopijaI != text.length()) labela.setText(labela.getText() + "|");
+                                if (kopijaI != text.length()) {
+                                    labela.setText(labela.getText() + "|");
+                                }
                             }
                         };
                         timer.schedule(task2, msPoKarakteru * kopijaI);
@@ -65,7 +68,9 @@ public class LabelAnimacija {
                             @Override
                             public void run() {
                                 labela.setText(text.substring(0, kopijaI));
-                                if(kopijaI != 0 && kopijaI != text.length()) labela.setText(labela.getText() + "|");
+                                if (kopijaI != 0 && kopijaI != text.length()) {
+                                    labela.setText(labela.getText() + "|");
+                                }
                             }
                         };
                         timer.schedule(task, (msPoKarakteru * text.length()) - (msPoKarakteru * kopijaI));

@@ -42,6 +42,11 @@ public class FajlMenadzer {
         }
     }
 
+    /**
+     * Updateuje zaposlenog u zaposleni.txt fajlu koristeci Zaposlen objekat.<br>
+     *
+     * @param zaposlen Objekat sa vec modifikovanim vrednostima.
+     */
     public static void updateZaposlenog(Zaposlen zaposlen) {
         try {
 
@@ -67,7 +72,15 @@ public class FajlMenadzer {
         }
     }
 
-    public static void updateAutobuskuLiniju(AutobuskaLinija autobuskaLinija) {
+    /**
+     * Updateuje broj mesta autobuske linije u autobuskeLinije.txt fajlu koristeci AutobuskaLinija objekat.<br>
+     * Da bi identifikovao tacnu liniju proverava sve parametre sem BrojMesta:<br>
+     * Poznat bug: Ako vise linija imaju sve proverene parametre identicne, metoda ce da updateuje sve te linije.<br>
+     * AutobuskaLinija nema u sebi unikatan parametar tako da ce morati ovako da ostane.
+     *
+     * @param autobuskaLinija Objekat sa vec modifikovanom vrednoscu broja mesta.
+     */
+    public static void updateBrojMestaAutobuskeLinije(AutobuskaLinija autobuskaLinija) {
         try {
 
             BufferedReader bufferedReader = new BufferedReader(new FileReader("podaci" + File.separator + AutobuskaLinija.imeFajla));
