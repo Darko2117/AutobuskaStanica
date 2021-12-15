@@ -183,33 +183,33 @@ public class MenadzerForma extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabela);
 
-        unaprediButton.setText("UNAPREDI");
         unaprediButton.setBackground(new java.awt.Color(44, 44, 44));
-        unaprediButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         unaprediButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         unaprediButton.setForeground(new java.awt.Color(153, 255, 153));
+        unaprediButton.setText("UNAPREDI");
+        unaprediButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         unaprediButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 unaprediButtonMouseClicked(evt);
             }
         });
 
-        dajOtkazButton.setText("DAJ OTKAZ");
         dajOtkazButton.setBackground(new java.awt.Color(44, 44, 44));
-        dajOtkazButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dajOtkazButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         dajOtkazButton.setForeground(new java.awt.Color(255, 51, 51));
+        dajOtkazButton.setText("DAJ OTKAZ");
+        dajOtkazButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dajOtkazButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dajOtkazButtonMouseClicked(evt);
             }
         });
 
-        dodajButton.setText("+");
         dodajButton.setBackground(new java.awt.Color(44, 44, 44));
-        dodajButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dodajButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         dodajButton.setForeground(new java.awt.Color(255, 255, 255));
+        dodajButton.setText("+");
+        dodajButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dodajButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dodajButtonMouseClicked(evt);
@@ -283,10 +283,12 @@ public class MenadzerForma extends javax.swing.JFrame {
 
         if (selektovanRed == tabela.getSelectedRow()) {
 
-            InformacijeZaposlenogForma informacijeZaposlenog = new InformacijeZaposlenogForma(UcitaniPodaci.getZaposlenIzIDZaposlenog((int) tabela.getValueAt(selektovanRed, 0)), vlasnikForme);
+            InformacijeZaposlenogForma informacijeZaposlenog = new InformacijeZaposlenogForma(vlasnikForme, UcitaniPodaci.getZaposlenIzIDZaposlenog((int) tabela.getValueAt(selektovanRed, 0)));
             informacijeZaposlenog.setLocation(instanca.getLocation());
             informacijeZaposlenog.setVisible(true);
             instanca.dispose();
+            
+            return;
 
         }
 

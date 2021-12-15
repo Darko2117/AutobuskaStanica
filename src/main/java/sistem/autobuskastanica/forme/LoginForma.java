@@ -58,9 +58,9 @@ public class LoginForma extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo1.png"))); // NOI18N
 
+        korisnickoImeLabela1.setText("Korisničko Ime");
         korisnickoImeLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         korisnickoImeLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        korisnickoImeLabela1.setText("Korisničko Ime");
 
         korisnickoImeTextField.setBackground(new java.awt.Color(114, 137, 218));
         korisnickoImeTextField.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -69,9 +69,9 @@ public class LoginForma extends javax.swing.JFrame {
         korisnickoImeLabela2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         korisnickoImeLabela2.setForeground(new java.awt.Color(255, 51, 51));
 
+        lozinkaLabela1.setText("Lozinka");
         lozinkaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         lozinkaLabela1.setForeground(new java.awt.Color(114, 137, 218));
-        lozinkaLabela1.setText("Lozinka");
 
         lozinkaPasswordField.setBackground(new java.awt.Color(114, 137, 218));
         lozinkaPasswordField.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -79,11 +79,11 @@ public class LoginForma extends javax.swing.JFrame {
         lozinkaLabela2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         lozinkaLabela2.setForeground(new java.awt.Color(255, 51, 51));
 
-        logInButton.setText("Log in");
         logInButton.setBackground(new java.awt.Color(114, 137, 218));
-        logInButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logInButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         logInButton.setForeground(new java.awt.Color(44, 47, 51));
+        logInButton.setText("Log in");
+        logInButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logInButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logInButtonMouseClicked(evt);
@@ -177,7 +177,7 @@ public class LoginForma extends javax.swing.JFrame {
 
         }
 
-        if (!UcitaniPodaci.getListaKorisnickihImena().contains(korisnickoIme)) {
+        if (!UcitaniPodaci.getListaKorisnickihImena().contains(korisnickoIme) || UcitaniPodaci.getZaposlenIzIDZaposlenog(UcitaniPodaci.getKorisnikIzKorisnickogImena(korisnickoIme).getIDZaposlenog()).getStatus() == 2) {
 
             String korisnickoImeLabela2Text = "Uneseno korisničko ime ne odgovara nijednom nalogu";
 

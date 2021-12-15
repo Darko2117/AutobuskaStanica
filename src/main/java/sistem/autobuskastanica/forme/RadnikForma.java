@@ -56,6 +56,7 @@ public class RadnikForma extends javax.swing.JFrame {
         ostavljanjeStvariButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AUTOBUSKA STANICA");
         setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);

@@ -135,13 +135,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="korisnickoImeLabela1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Korisni&#x10d;ko Ime"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Korisni&#x10d;ko Ime"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="korisnickoImeTextField">
@@ -167,13 +167,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lozinkaLabela1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lozinka"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Lozinka"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="lozinkaPasswordField">
@@ -198,18 +198,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="logInButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Log in"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="20" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="2f" red="2c" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Log in"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>

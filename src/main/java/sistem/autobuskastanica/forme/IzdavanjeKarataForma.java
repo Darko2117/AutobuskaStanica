@@ -31,6 +31,7 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         ucitajTabelu();
         pocniUpdateovanjeTabele();
         namestiButtonGroup();
+        pocetneAnimacije();
 
     }
 
@@ -45,6 +46,7 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         ucitajTabelu();
         pocniUpdateovanjeTabele();
         namestiButtonGroup();
+        pocetneAnimacije();
 
     }
 
@@ -134,6 +136,17 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         odrasliRadioButton.setSelected(true);
 
     }
+    
+    private void pocetneAnimacije(){
+    
+        String brojKarataLabelaText = "OSTAVLJANJE";
+        String vrstaKarteLabelaText = "Molimo opišite ostavljen prtljag";
+        brojKarataLabela.setText("");
+        vrstaKarteLabela.setText("");
+        LabelAnimacija.pokreni(brojKarataLabela, brojKarataLabelaText, 100, 0, 250);
+        LabelAnimacija.pokreni(vrstaKarteLabela, vrstaKarteLabelaText, 100, 0, 250);
+    
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -206,32 +219,32 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         tabela.setShowGrid(true);
         jScrollPane1.setViewportView(tabela);
 
+        brojKarataLabela.setText("Broj karata");
         brojKarataLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         brojKarataLabela.setForeground(new java.awt.Color(114, 137, 218));
-        brojKarataLabela.setText("Broj karata");
 
         brojKarataSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 90, 1));
 
+        vrstaKarteLabela.setText("Vrsta karte");
         vrstaKarteLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         vrstaKarteLabela.setForeground(new java.awt.Color(114, 137, 218));
-        vrstaKarteLabela.setText("Vrsta karte");
 
+        odrasliRadioButton.setText("Odrasli");
         odrasliRadioButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         odrasliRadioButton.setForeground(new java.awt.Color(114, 137, 218));
-        odrasliRadioButton.setText("Odrasli");
 
+        penzioneriRadioButton.setText("Penzioneri (-25%)");
         penzioneriRadioButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         penzioneriRadioButton.setForeground(new java.awt.Color(114, 137, 218));
-        penzioneriRadioButton.setText("Penzioneri (-25%)");
 
+        decaRadioButton.setText("Deca (-40%)");
         decaRadioButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         decaRadioButton.setForeground(new java.awt.Color(114, 137, 218));
-        decaRadioButton.setText("Deca (-40%)");
 
-        gotovoButton.setText("Gotovo");
         gotovoButton.setBackground(new java.awt.Color(114, 137, 218));
-        gotovoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         gotovoButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
+        gotovoButton.setText("Gotovo");
+        gotovoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         gotovoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gotovoButtonMouseClicked(evt);
