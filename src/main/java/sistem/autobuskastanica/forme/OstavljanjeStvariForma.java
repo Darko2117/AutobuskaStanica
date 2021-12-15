@@ -67,7 +67,7 @@ public class OstavljanjeStvariForma extends javax.swing.JFrame {
                     String text = "";
                     for (OstavljeneStvari ostavljeneStvari : UcitaniPodaci.getOstavljeneStvari()) {
                         if (ostavljeneStvari.getID() == unetID) {
-                            text = ostavljeneStvari.getOpisStvari();
+                            text = ostavljeneStvari.getOpisStvari().replace("|", "\n");
                         }
                         preuzimanjeTextArea.setText(text);
                     }
@@ -155,10 +155,10 @@ public class OstavljanjeStvariForma extends javax.swing.JFrame {
         ostavljanjeTextArea.setRows(5);
         jScrollPane1.setViewportView(ostavljanjeTextArea);
 
-        ostavljanjeGotovoButton.setText("Gotovo");
         ostavljanjeGotovoButton.setBackground(new java.awt.Color(114, 137, 218));
-        ostavljanjeGotovoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ostavljanjeGotovoButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
+        ostavljanjeGotovoButton.setText("Gotovo");
+        ostavljanjeGotovoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ostavljanjeGotovoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ostavljanjeGotovoButtonMouseClicked(evt);
@@ -304,7 +304,7 @@ public class OstavljanjeStvariForma extends javax.swing.JFrame {
 
         }
 
-        String opisStvari = ostavljanjeTextArea.getText().replace("\n", "");
+        String opisStvari = ostavljanjeTextArea.getText().replace("\n", "|");
 
         int randomID;
         randomIDSetter:
