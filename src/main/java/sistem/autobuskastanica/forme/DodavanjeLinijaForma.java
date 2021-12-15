@@ -419,7 +419,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
         //Provera sedista
         try {
-            sedista = Integer.parseInt(sedistaTextField.getText());
+            sedista = Math.abs(Integer.parseInt(sedistaTextField.getText()));
         } catch (Throwable throwable) {
 
             neispravnoPoljeText = "\"Sedista\" polje nije validno";
@@ -443,7 +443,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
         //Provera cene
         try {
-            cena = Integer.parseInt(cenaTextField.getText());
+            cena = Math.abs(Integer.parseInt(cenaTextField.getText()));
         } catch (Throwable throwable) {
 
             neispravnoPoljeText = "\"Cena\" polje nije validno";

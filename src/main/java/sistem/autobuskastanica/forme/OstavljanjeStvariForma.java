@@ -143,13 +143,13 @@ public class OstavljanjeStvariForma extends javax.swing.JFrame {
             }
         });
 
-        ostavljanjeLabela1.setText("OSTAVLJANJE");
         ostavljanjeLabela1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         ostavljanjeLabela1.setForeground(new java.awt.Color(114, 137, 218));
+        ostavljanjeLabela1.setText("OSTAVLJANJE");
 
-        ostavljanjelabela2.setText("Molimo opišite ostavljen prtljag");
         ostavljanjelabela2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         ostavljanjelabela2.setForeground(new java.awt.Color(114, 137, 218));
+        ostavljanjelabela2.setText("Molimo opišite ostavljen prtljag");
 
         ostavljanjeTextArea.setColumns(20);
         ostavljanjeTextArea.setRows(5);
@@ -168,13 +168,13 @@ public class OstavljanjeStvariForma extends javax.swing.JFrame {
         ostavljanjeGreskaLabela.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         ostavljanjeGreskaLabela.setForeground(new java.awt.Color(255, 51, 51));
 
-        preuzimanjeLabela1.setText("PREUZIMANJE");
         preuzimanjeLabela1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         preuzimanjeLabela1.setForeground(new java.awt.Color(114, 137, 218));
+        preuzimanjeLabela1.setText("PREUZIMANJE");
 
-        preuzimanjeLabela2.setText("Molimo unesite ID prtljaga");
         preuzimanjeLabela2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         preuzimanjeLabela2.setForeground(new java.awt.Color(114, 137, 218));
+        preuzimanjeLabela2.setText("Molimo unesite ID prtljaga");
 
         preuzimanjeTextField.setBackground(new java.awt.Color(114, 137, 218));
 

@@ -147,15 +147,15 @@ public class MainForma extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo1.png"))); // NOI18N
 
-        labela1.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
-        labela1.setForeground(new java.awt.Color(114, 137, 218));
         labela1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labela1.setText("AUTOBUSKA STANICA");
+        labela1.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
+        labela1.setForeground(new java.awt.Color(114, 137, 218));
 
-        labela2.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
-        labela2.setForeground(new java.awt.Color(114, 137, 218));
         labela2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labela2.setText("DOBRODOŠLI");
+        labela2.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
+        labela2.setForeground(new java.awt.Color(114, 137, 218));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

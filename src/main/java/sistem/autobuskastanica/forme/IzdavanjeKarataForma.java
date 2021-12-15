@@ -67,7 +67,7 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
                 continue;
             }
 
-            if (LocalTime.now().isAfter(Metode.getLocalTimeIzSSMMStringa(autobuskaLinija.getVreme()))) {
+            if (LocalDate.now().equals(Metode.getLocalDateIzDDMMGGGGStringa(autobuskaLinija.getDatum())) && LocalTime.now().isAfter(Metode.getLocalTimeIzSSMMStringa(autobuskaLinija.getVreme()))) {
                 continue;
             }
 
@@ -136,16 +136,16 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         odrasliRadioButton.setSelected(true);
 
     }
-    
-    private void pocetneAnimacije(){
-    
-        String brojKarataLabelaText = "OSTAVLJANJE";
-        String vrstaKarteLabelaText = "Molimo opišite ostavljen prtljag";
+
+    private void pocetneAnimacije() {
+
+        String brojKarataLabelaText = "Broj karata";
+        String vrstaKarteLabelaText = "Vrsta karte";
         brojKarataLabela.setText("");
         vrstaKarteLabela.setText("");
         LabelAnimacija.pokreni(brojKarataLabela, brojKarataLabelaText, 100, 0, 250);
         LabelAnimacija.pokreni(vrstaKarteLabela, vrstaKarteLabelaText, 100, 0, 250);
-    
+
     }
 
     @SuppressWarnings("unchecked")
@@ -219,27 +219,27 @@ public class IzdavanjeKarataForma extends javax.swing.JFrame {
         tabela.setShowGrid(true);
         jScrollPane1.setViewportView(tabela);
 
-        brojKarataLabela.setText("Broj karata");
         brojKarataLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         brojKarataLabela.setForeground(new java.awt.Color(114, 137, 218));
+        brojKarataLabela.setText("Broj karata");
 
         brojKarataSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 90, 1));
 
-        vrstaKarteLabela.setText("Vrsta karte");
         vrstaKarteLabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         vrstaKarteLabela.setForeground(new java.awt.Color(114, 137, 218));
+        vrstaKarteLabela.setText("Vrsta karte");
 
-        odrasliRadioButton.setText("Odrasli");
         odrasliRadioButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         odrasliRadioButton.setForeground(new java.awt.Color(114, 137, 218));
+        odrasliRadioButton.setText("Odrasli");
 
-        penzioneriRadioButton.setText("Penzioneri (-25%)");
         penzioneriRadioButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         penzioneriRadioButton.setForeground(new java.awt.Color(114, 137, 218));
+        penzioneriRadioButton.setText("Penzioneri (-25%)");
 
-        decaRadioButton.setText("Deca (-40%)");
         decaRadioButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         decaRadioButton.setForeground(new java.awt.Color(114, 137, 218));
+        decaRadioButton.setText("Deca (-40%)");
 
         gotovoButton.setBackground(new java.awt.Color(114, 137, 218));
         gotovoButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N

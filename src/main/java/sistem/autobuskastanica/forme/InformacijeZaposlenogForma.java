@@ -132,10 +132,10 @@ public class InformacijeZaposlenogForma extends javax.swing.JFrame {
             }
         });
 
-        menadzerLabela.setFont(new java.awt.Font("Tahoma", 1, 50)); // NOI18N
-        menadzerLabela.setForeground(new java.awt.Color(114, 137, 218));
         menadzerLabela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menadzerLabela.setText("ID: 0 Ime Prezime");
+        menadzerLabela.setFont(new java.awt.Font("Tahoma", 1, 50)); // NOI18N
+        menadzerLabela.setForeground(new java.awt.Color(114, 137, 218));
 
         tabela.setBackground(new java.awt.Color(114, 137, 218));
         tabela.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N

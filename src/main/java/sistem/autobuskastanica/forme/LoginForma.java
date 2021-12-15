@@ -58,9 +58,9 @@ public class LoginForma extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo1.png"))); // NOI18N
 
-        korisnickoImeLabela1.setText("Korisničko Ime");
         korisnickoImeLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         korisnickoImeLabela1.setForeground(new java.awt.Color(114, 137, 218));
+        korisnickoImeLabela1.setText("Korisničko Ime");
 
         korisnickoImeTextField.setBackground(new java.awt.Color(114, 137, 218));
         korisnickoImeTextField.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -69,9 +69,9 @@ public class LoginForma extends javax.swing.JFrame {
         korisnickoImeLabela2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         korisnickoImeLabela2.setForeground(new java.awt.Color(255, 51, 51));
 
-        lozinkaLabela1.setText("Lozinka");
         lozinkaLabela1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         lozinkaLabela1.setForeground(new java.awt.Color(114, 137, 218));
+        lozinkaLabela1.setText("Lozinka");
 
         lozinkaPasswordField.setBackground(new java.awt.Color(114, 137, 218));
         lozinkaPasswordField.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
