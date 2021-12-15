@@ -1,40 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package sistem.autobuskastanica.forme;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import sistem.autobuskastanica.backendklase.AutobuskaLinija;
 import sistem.autobuskastanica.backendklase.FajlMenadzer;
 import sistem.autobuskastanica.backendklase.LabelAnimacija;
-import sistem.autobuskastanica.backendklase.Metode;
 import sistem.autobuskastanica.backendklase.UcitaniPodaci;
 
-/**
- *
- * @author Darko
- */
 public class MainForma extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrvaForma
-     */
-    private MainForma instanca = this;
+    private final MainForma instanca = this;
 
     public MainForma() {
 
         FajlMenadzer.napraviPocetneFajlove();
 
-        UcitaniPodaci.ucitajKorisnike();
-        UcitaniPodaci.ucitajStatuse();
-        UcitaniPodaci.ucitajStatuseZaposlenih();
-        UcitaniPodaci.ucitajZaposlene();
+        UcitaniPodaci.ucitajSvePodatke();
 
         initComponents();
+        
         instanca.setLocationRelativeTo(null); //Centrira jFrame na sredini ekrana
 
         pocetneAnimacije();
@@ -43,8 +26,8 @@ public class MainForma extends javax.swing.JFrame {
 
     private void pocetneAnimacije() {
 
-        //PRVA ANIMACIJA
-        //LABELA 1 ANIMACIJA 1
+        //Pocetna animacija
+        //labela1 animacija 1
         labela1.setText("");
         String labela1Text = "AUTOBUSKA STANICA";
         int labela1BrzinaAnimacije1 = 50;
@@ -52,7 +35,7 @@ public class MainForma extends javax.swing.JFrame {
         int labela1CeloTrajanjeAnimacije1 = labela1BrzinaAnimacije1 * labela1Text.length() + labela1ZakasnjenjeAnimacije1;
         LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije1, 0, labela1ZakasnjenjeAnimacije1);
 
-        //LABELA 2 ANIMACIJA 1
+        //labela2 animacija 1
         labela2.setText("");
         String labela2Text = "DOBRODOŠLI";
         int labela2BrzinaAnimacije1 = 50;
@@ -60,19 +43,18 @@ public class MainForma extends javax.swing.JFrame {
         int labela2CeloTrajanjeAnimacije1 = labela2BrzinaAnimacije1 * labela2Text.length() + labela2ZakasnjenjeAnimacije1;
         LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije1, 0, labela2ZakasnjenjeAnimacije1);
 
-        //LABELA 2 ANIMACIJA 2
+        //labela2 animacija 2
         int labela2BrzinaAnimacije2 = 30;
         int labela2ZakasnjenjeAnimacije2 = labela2CeloTrajanjeAnimacije1 + 2500;
         int labela2CeloTrajanjeAnimacije2 = labela2BrzinaAnimacije2 * labela2Text.length() + labela2ZakasnjenjeAnimacije2;
         LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije2, 1, labela2ZakasnjenjeAnimacije2);
 
-        //LABELA 1 ANIMACIJA 2
+        //labela1 animacija 2
         int labela1BrzinaAnimacije2 = 30;
         int labela1ZakasnjenjeAnimacije2 = labela2CeloTrajanjeAnimacije2;
         int labela1CeloTrajanjeAnimacije2 = labela1BrzinaAnimacije2 * labela1Text.length() + labela1ZakasnjenjeAnimacije2;
         LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije2, 1, labela1ZakasnjenjeAnimacije2);
 
-        //OTVARANJE LOGIN FORME
         if (!UcitaniPodaci.getKorisnici().isEmpty()) {
 
             Timer timer = new Timer();
@@ -90,9 +72,8 @@ public class MainForma extends javax.swing.JFrame {
             timer.schedule(timerTask, labela1CeloTrajanjeAnimacije2 + 250);
 
         }
-        //----------------------------------------------------------------------------------------------------
 
-        //ANIMACIJA U SLUCAJU DA NEMA KORISNIKA
+        //Animacija u slucaju da nema korisnika
         if (UcitaniPodaci.getKorisnici().isEmpty()) {
 
             Timer timer = new Timer();
@@ -110,19 +91,18 @@ public class MainForma extends javax.swing.JFrame {
                     String labela1Text = "NIJE PRONAĐEN NIJEDAN KORISNIK";
                     String labela2Text = "MOLIMO UNESITE PRVOG";
 
-                    //LABELA 1 ANIMACIJA 1
+                    //labela1 animacija 1
                     int labela1BrzinaAnimacije1 = 50;
                     int labela1ZakasnjenjeAnimacije1 = 0;
                     int labela1CeloTrajanjeAnimacije1 = labela1BrzinaAnimacije1 * labela1Text.length() + labela1ZakasnjenjeAnimacije1;
                     LabelAnimacija.pokreni(labela1, labela1Text, labela1BrzinaAnimacije1, 0, labela1ZakasnjenjeAnimacije1);
 
-                    //LABELA 2 ANIMACIJA 1
+                    //labela2 animacija 1
                     int labela2BrzinaAnimacije1 = 50;
                     int labela2ZakasnjenjeAnimacije1 = labela1CeloTrajanjeAnimacije1 + 1000;
                     int labela2CeloTrajanjeAnimacije1 = labela2BrzinaAnimacije1 * labela2Text.length() + labela2ZakasnjenjeAnimacije1;
                     LabelAnimacija.pokreni(labela2, labela2Text, labela2BrzinaAnimacije1, 0, labela2ZakasnjenjeAnimacije1);
 
-                    //OTVARANJE UNOSENJE FORME
                     TimerTask task2 = new TimerTask() {
                         public void run() {
 
@@ -141,13 +121,9 @@ public class MainForma extends javax.swing.JFrame {
             timer.schedule(task1, labela1CeloTrajanjeAnimacije2 + 250);
 
         }
-        //----------------------------------------------------------------------------------------------------
 
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form. WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -159,6 +135,7 @@ public class MainForma extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AUTOBUSKA STANICA");
+        setMaximumSize(new java.awt.Dimension(1000, 650));
         setMinimumSize(new java.awt.Dimension(1000, 650));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 650));
@@ -223,15 +200,7 @@ public class MainForma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -248,12 +217,7 @@ public class MainForma extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainForma().setVisible(true);

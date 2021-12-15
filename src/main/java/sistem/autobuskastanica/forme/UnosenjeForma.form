@@ -10,6 +10,7 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1000, 650]"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1000, 650]"/>
     </Property>
@@ -67,38 +68,38 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="UspesnoUnosenjeLabela" min="-2" max="-2" attributes="0"/>
-                              <Component id="LozinkaLabela" min="-2" max="-2" attributes="0"/>
+                              <Component id="uspesnoUnosenjeLabela" min="-2" max="-2" attributes="0"/>
+                              <Component id="lozinkaLabela1" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="StatusLabela" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LozinkaTextField" alignment="0" pref="300" max="32767" attributes="0"/>
-                                      <Component id="KorisnickoImeLabela" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="KorisnickoImeTextField" alignment="0" pref="300" max="32767" attributes="0"/>
-                                      <Component id="PrezimeLabela" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="PrezimeTextField" alignment="0" pref="300" max="32767" attributes="0"/>
-                                      <Component id="ImeLabela" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ImeTextField" max="32767" attributes="0"/>
-                                      <Component id="StatusComboBox" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="statusLabela" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lozinkaTextField" alignment="0" pref="300" max="32767" attributes="0"/>
+                                      <Component id="korisnickoImeLabela1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="korisnickoImeTextField" alignment="0" pref="300" max="32767" attributes="0"/>
+                                      <Component id="prezimeLabela1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="prezimeTextField" alignment="0" pref="300" max="32767" attributes="0"/>
+                                      <Component id="imeLabela1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="imeTextField" max="32767" attributes="0"/>
+                                      <Component id="statusComboBox" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ImeLabela1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="PrezimeLabela1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="KorisnickoImeLabela1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="LozinkaLabela1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="imeLabela2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="prezimeLabela2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="korisnickoImeLabela2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lozinkaLabela2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="DodajButton" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="dodajButton" min="-2" pref="140" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="OcistiButton" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="ocistiButton" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BackLabela" min="-2" max="-2" attributes="0"/>
+                          <Component id="backLabela" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -109,53 +110,68 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BackLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="backLabela" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="ImeLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="imeLabela1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ImeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ImeLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="imeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="imeLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="PrezimeLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="prezimeLabela1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="PrezimeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="PrezimeLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="prezimeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="prezimeLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="KorisnickoImeLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="korisnickoImeLabela1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="KorisnickoImeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="KorisnickoImeLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="korisnickoImeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="korisnickoImeLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="LozinkaLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="lozinkaLabela1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LozinkaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="LozinkaLabela1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lozinkaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lozinkaLabela2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="StatusLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusLabela" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="StatusComboBox" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusComboBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="DodajButton" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="OcistiButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="dodajButton" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="ocistiButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="UspesnoUnosenjeLabela" min="-2" max="-2" attributes="0"/>
+                  <Component id="uspesnoUnosenjeLabela" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="ImeLabela">
+        <Component class="javax.swing.JLabel" name="backLabela">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/back1.png"/>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backLabelaMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backLabelaMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backLabelaMouseExited"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="imeLabela1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -169,7 +185,14 @@
             <Property name="text" type="java.lang.String" value="Ime"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="ImeLabela1">
+        <Component class="javax.swing.JTextField" name="imeTextField">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="89" red="72" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="imeLabela2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -182,14 +205,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ImeTextField">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="PrezimeLabela">
+        <Component class="javax.swing.JLabel" name="prezimeLabela1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -203,7 +219,14 @@
             <Property name="text" type="java.lang.String" value="Prezime"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="PrezimeLabela1">
+        <Component class="javax.swing.JTextField" name="prezimeTextField">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="89" red="72" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="prezimeLabela2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -216,14 +239,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PrezimeTextField">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="KorisnickoImeLabela">
+        <Component class="javax.swing.JLabel" name="korisnickoImeLabela1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -237,7 +253,14 @@
             <Property name="text" type="java.lang.String" value="Korisni&#x10d;ko Ime"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="KorisnickoImeLabela1">
+        <Component class="javax.swing.JTextField" name="korisnickoImeTextField">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="89" red="72" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="korisnickoImeLabela2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -250,14 +273,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="KorisnickoImeTextField">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="LozinkaLabela">
+        <Component class="javax.swing.JLabel" name="lozinkaLabela1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -271,7 +287,14 @@
             <Property name="text" type="java.lang.String" value="Lozinka"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="LozinkaLabela1">
+        <Component class="javax.swing.JTextField" name="lozinkaTextField">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="89" red="72" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lozinkaLabela2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -284,14 +307,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="LozinkaTextField">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="89" red="72" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="StatusLabela">
+        <Component class="javax.swing.JLabel" name="statusLabela">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -305,7 +321,7 @@
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="StatusComboBox">
+        <Component class="javax.swing.JComboBox" name="statusComboBox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="15" style="0"/>
@@ -321,7 +337,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="DodajButton">
+        <Component class="javax.swing.JButton" name="dodajButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -338,10 +354,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DodajButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dodajButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="OcistiButton">
+        <Component class="javax.swing.JButton" name="ocistiButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -353,12 +369,15 @@
               <Color blue="33" green="2f" red="2c" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ocisti"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OcistiButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ocistiButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="UspesnoUnosenjeLabela">
+        <Component class="javax.swing.JLabel" name="uspesnoUnosenjeLabela">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="da" green="89" red="72" type="rgb"/>
@@ -370,18 +389,6 @@
               <Color blue="33" green="99" red="0" type="rgb"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="BackLabela">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/back1.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BackLabelaMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BackLabelaMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BackLabelaMouseExited"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -15,14 +15,12 @@ import sistem.autobuskastanica.backendklase.Zaposlen;
 
 public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
-    private DodavanjeLinijaForma instanca;
+    private final DodavanjeLinijaForma instanca = this;
     private Zaposlen vlasnikForme;
 
     public DodavanjeLinijaForma() {
 
         UcitaniPodaci.ucitajSvePodatke();
-
-        instanca = this;
 
         initComponents();
 
@@ -36,8 +34,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
         UcitaniPodaci.ucitajSvePodatke();
 
-        instanca = this;
-        vlasnikForme = vlasnikForme;
+        this.vlasnikForme = vlasnikForme;
 
         initComponents();
 
@@ -147,6 +144,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
         backLabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back1.png"))); // NOI18N
+        backLabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backLabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backLabelaMouseClicked(evt);
@@ -194,6 +192,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
         dodajButton.setText("Dodaj");
         dodajButton.setBackground(new java.awt.Color(114, 137, 218));
+        dodajButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dodajButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         dodajButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -203,6 +202,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
         obrisiButton.setText("Obrisi");
         obrisiButton.setBackground(new java.awt.Color(114, 137, 218));
+        obrisiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         obrisiButton.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         obrisiButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -215,6 +215,7 @@ public class DodavanjeLinijaForma extends javax.swing.JFrame {
 
         dodajRandomButton.setText("+");
         dodajRandomButton.setBackground(new java.awt.Color(44, 44, 44));
+        dodajRandomButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         dodajRandomButton.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         dodajRandomButton.setForeground(new java.awt.Color(255, 255, 255));
         dodajRandomButton.addMouseListener(new java.awt.event.MouseAdapter() {
